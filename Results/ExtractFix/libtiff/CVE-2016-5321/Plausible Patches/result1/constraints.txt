@@ -1,0 +1,6 @@
+(Or (Not (And (Ult 0
+                     imagewidth)
+               (Slt  s
+                    9)))
+     (Slt  s
+          8))

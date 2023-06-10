@@ -1,0 +1,5 @@
+File: libarchive/archive_read_support_format_iso9660.c
+Function: choose_volume
+Line: 1094
++	if ((2048)*(vd@rm_so) > 2147483647)
++		

@@ -1,0 +1,28 @@
+762a763
+> /*M_SIZE_G*/ extern size_t LOWFAT_GLOBAL_MS__tif_unix__TIFFmalloc_316;
+950a952
+> /*M_SIZE_G*/ extern size_t LOWFAT_GLOBAL_MS__tif_unix__TIFFmalloc_316;
+992c994
+<       for (s = 0; s < spp; s++)
+---
+> for (s;(((s)<(spp))&&((s)<=(7))); s++)
+1128a1131
+> /*M_SIZE_G*/ extern size_t LOWFAT_GLOBAL_MS__tif_unix__TIFFmalloc_316;
+1193a1197
+> /*M_SIZE_G*/ extern size_t LOWFAT_GLOBAL_MS__tif_unix__TIFFmalloc_316;
+1269a1274
+> /*M_SIZE_G*/ extern size_t LOWFAT_GLOBAL_MS__tif_unix__TIFFmalloc_316;
+4688a4694
+> /*M_SIZE_G*/ extern size_t LOWFAT_GLOBAL_MS__tif_unix__TIFFmalloc_316;
+5734a5741
+> /*M_SIZE_G*/ extern size_t LOWFAT_GLOBAL_MS__tif_unix__TIFFmalloc_316;
+7196a7204
+> /*M_SIZE_G*/ extern size_t LOWFAT_GLOBAL_MS__tif_unix__TIFFmalloc_316;
+7241a7250
+> /*M_SIZE_G*/ extern size_t LOWFAT_GLOBAL_MS__tif_unix__TIFFmalloc_316;
+7476a7486
+> /*M_SIZE_G*/ extern size_t LOWFAT_GLOBAL_MS__tif_unix__TIFFmalloc_316;
+8239a8250
+> /*M_SIZE_G*/ extern size_t LOWFAT_GLOBAL_MS__tif_unix__TIFFmalloc_316;
+8894a8906
+> /*M_SIZE_G*/ extern size_t LOWFAT_GLOBAL_MS__tif_unix__TIFFmalloc_316;

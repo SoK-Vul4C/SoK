@@ -1,0 +1,243 @@
+File: tiffcrop.c
+Line: 2910
++void extractContigSamples24bits_clone (uint8 *in, uint8 *out, uint32 cols,
++ 	                    tsample_t sample, uint16 spp, uint16 bps, 
++                            tsample_t count, uint32 start, uint32 end, char **extractContigSamples24bits_clone_start, char **extractContigSamples24bits_clone_end)
++  {
++  int    ready_bits = 0, sindex = 0;
++  uint32 col, src_byte, src_bit, bit_offset;
++  uint32 maskbits = 0, matchbits = 0;
++  uint32 buff1 = 0, buff2 = 0;
++  uint8  bytebuff1 = 0, bytebuff2 = 0;
++  uint8 *src = in;
++  uint8 *dst = out;
++	*extractContigSamples24bits_clone_start = dst;
++  if ((in == NULL) || (out == NULL))
++    {
++    }
++  if ((start > end) || (start > cols))
++    {
++    start = 0;
++    }
++  if ((end == 0) || (end > cols))
++    {
++    end = cols;
++    }
++  ready_bits = 0;
++  maskbits =  (uint32)-1 >> ( 32 - bps);
++  for (col = start; col < end; col++)
++    {
++    bit_offset = col * bps * spp;
++    for (sindex = sample; (sindex < spp) && (sindex < (sample + count)); sindex++)
++      {
++      if (sindex == 0)
++        {
++        src_byte = bit_offset / 8;
++        src_bit  = bit_offset % 8;
++        }
++        {
++        src_byte = (bit_offset + (sindex * bps)) / 8;
++        src_bit  = (bit_offset + (sindex * bps)) % 8;
++        }
++      src = in + src_byte;
++      matchbits = maskbits << (32 - src_bit - bps); 
++      if (little_endian)
++	buff1 = (src[0] << 24) | (src[1] << 16) | (src[2] << 8) | src[3];
++	buff1 = (src[3] << 24) | (src[2] << 16) | (src[1] << 8) | src[0];
++      buff1 = (buff1 & matchbits) << (src_bit);
++      if (ready_bits < 16) /* add another bps bits to the buffer */
++        {
++        bytebuff1 = bytebuff2 = 0;
++        buff2 = (buff2 | (buff1 >> ready_bits));
++        }
++        {
++        bytebuff1 = (buff2 >> 24);
++dst=dst+1;
++        bytebuff2 = (buff2 >> 16);
++dst=dst+1;
++        ready_bits -= 16;
++        buff2 = ((buff2 << 16) | (buff1 >> ready_bits));
++        }
++      ready_bits += bps;
++      }
++    }
++  while (ready_bits > 0)
++    {
++    bytebuff1 = (buff2 >> 24);
++dst=dst+1;
++    buff2 = (buff2 << 8);
++    bytebuff2 = bytebuff1;
++    ready_bits -= 8;
++    } 
++	*extractContigSamples24bits_clone_end = dst;
++  } /* end extractContigSamples24bits */
+File: tiffcrop.c
+Line: 3484
++void extractContigSamplesToBuffer_clone(uint8 *out, uint8 *in, uint32 rows, uint32 cols,
++  	                     tsample_t sample, uint16 spp, uint16 bps, 
++                             struct dump_opts *dump, char **extractContigSamplesToBuffer_clone_start, char **extractContigSamplesToBuffer_clone_end)
++  {
++  int    shift_width, bytes_per_sample, bytes_per_pixel;
++  uint32 src_rowsize, src_offset, row, first_col = 0;
++  uint32 dst_rowsize, dst_offset;
++  tsample_t count = 1;
++  uint8 *src, *dst;
++  bytes_per_sample = (bps + 7) / 8; 
++  bytes_per_pixel  = ((bps * spp) + 7) / 8;
++  if ((bps % 8) == 0)
++    shift_width = 0;
++    {
++    if (bytes_per_pixel < (bytes_per_sample + 1))
++      shift_width = bytes_per_pixel;
++      shift_width = bytes_per_sample + 1;
++    }
++  src_rowsize = ((bps * spp * cols) + 7) / 8;
++  dst_rowsize = ((bps * cols) + 7) / 8;
++    {
++    }
++  for (row = 0; row < rows; row++)
++    {
++    src_offset = row * src_rowsize;
++    dst_offset = row * dst_rowsize;
++    src = in + src_offset;
++    dst = out + dst_offset;
++    switch (shift_width)
++      {  
++                {
++		}
++      case 2: if (extractContigSamples24bits_clone(src,dst,cols,sample,spp,bps,count,first_col,cols,extractContigSamplesToBuffer_clone_start,extractContigSamplesToBuffer_clone_end))
++      }
++    }
++  } /* end extractContigSamplesToBuffer */
+File: tiffcrop.c
+Line: 1149
++void writeBufferToSeparateStrips_clone (TIFF* out, uint8* buf, 
++			     uint32 length, uint32 width, uint16 spp,
++			     struct dump_opts *dump, char **writeBufferToSeparateStrips_clone_start, char **writeBufferToSeparateStrips_clone_end)
++  {
++  uint8   *src;
++  uint16   bps;
++  uint32   row, nrows, rowsize, rowsperstrip;
++  uint32   bytes_per_sample;
++  tsample_t s;
++  tsize_t  rowstripsize,  scanlinesize = TIFFScanlineSize(out);
++  tdata_t  obuf;
++  bytes_per_sample = (bps + 7) / 8;
++  rowsize = ((bps * spp * width) + 7) / 8; /* source has interleaved samples */
++  rowstripsize = rowsperstrip * bytes_per_sample * (width + 1); 
++  obuf = _TIFFmalloc (rowstripsize);
++  if (obuf == NULL)
++  for (s = 0; s < spp; s++)
++    {
++    for (row = 0; row < length; row += rowsperstrip)
++      {
++      nrows = (row + rowsperstrip > length) ? length - row : rowsperstrip;
++      src = buf + (row * rowsize);
++      if (extractContigSamplesToBuffer_clone(obuf,src,nrows,width,s,spp,bps,dump,writeBufferToSeparateStrips_clone_start,writeBufferToSeparateStrips_clone_end))
++        {
++	}
++        {
++	}
++        {
++	}
++      }
++    }      
++}
+File: tiffcrop.c
+Line: 7683
++void writeCroppedImage_clone(TIFF *in, TIFF *out, struct image_data *image, 
++                  struct dump_opts *dump, uint32 width, uint32 length, 
++                  unsigned char *crop_buff, int pagenum, int total_pages, char **writeCroppedImage_clone_start, char **writeCroppedImage_clone_end)
++  {
++  uint16 bps, spp;
++  uint16 input_compression, input_photometric;
++  input_photometric = image->photometric;
++  spp = image->spp;
++  bps = image->bps;
++    {
++      {
++      }
++    }
++  if (compression == COMPRESSION_JPEG)
++    {
++    if ((input_photometric == PHOTOMETRIC_PALETTE) ||  /* color map indexed */
++        (input_photometric == PHOTOMETRIC_MASK))       /* $holdout mask */
++      {
++      }
++    }
++    {
++      {
++      }
++      {
++        {
++        }
++      }
++    }
++  if (((input_photometric == PHOTOMETRIC_LOGL) ||
++       (input_photometric ==  PHOTOMETRIC_LOGLUV)) &&
++      ((compression != COMPRESSION_SGILOG) && 
++       (compression != COMPRESSION_SGILOG24)))
++    {
++    }
++  if (outtiled) {
++    } else {
++          {
++            {
++	    }
++	  }
++	}
++  switch (compression) {
++         if (((bps % 8) == 0) || ((bps % 12) == 0))
++	   {
++           }
++           {
++           }
++        if (bps != 1)
++          {
++	  }
++	if (compression == COMPRESSION_CCITTFAX3) {
++	} else {
++        }
++   }
++   { uint32 len32;
++   }
++   { uint16 ninks;
++     if (TIFFGetField(in, TIFFTAG_NUMBEROFINKS, &ninks)) {
++       if (TIFFGetField(in, TIFFTAG_INKNAMES, &inknames)) {
++	 while (ninks > 1) {
++	   if (cp) {
++	   }
++         }
++       }
++     }
++   }
++   {
++   if (TIFFGetField(in, TIFFTAG_PAGENUMBER, &pg0, &pg1)) {
++     }
++   }
++  if (outtiled)
++    {
++      {
++      }
++      {
++      }
++    }
++    {
++    if (config == PLANARCONFIG_CONTIG)
++      {
++      }
++      {
++      if (writeBufferToSeparateStrips_clone(out,crop_buff,length,width,spp,dump,writeCroppedImage_clone_start,writeCroppedImage_clone_end))
++      }
++    }
++    {
++    }
++  } /* end writeCroppedImage */
+File: tiffcrop.c
+Function: writeBufferToSeparateStrips
+Line: 1184
++	char *extractContigSamplesToBuffer_clone_start;
++	char *extractContigSamplesToBuffer_clone_end;
++	extractContigSamplesToBuffer_clone(obuf,src,nrows,width,s,spp,bps,dump, &extractContigSamplesToBuffer_clone_start, &extractContigSamplesToBuffer_clone_end);
++	if (extractContigSamplesToBuffer_clone_end >= (char *)obuf + rowstripsize)
++		exit(0);

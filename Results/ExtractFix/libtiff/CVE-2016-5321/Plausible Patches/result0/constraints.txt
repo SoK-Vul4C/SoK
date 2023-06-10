@@ -1,0 +1,4 @@
+(Or (Not (Slt  s
+                spp))
+     (Slt  s
+          8))

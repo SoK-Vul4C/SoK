@@ -1,0 +1,2 @@
+    for (col = 0; col < imagewidth; col += tw)
+positive

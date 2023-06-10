@@ -1,0 +1,20 @@
+File: tiffcrop.c
+Line: 1
++	int __g_buf_size;
+Function: loadImage
+Line: 6167
++	__g_buf_size = (buffsize)+(3);
+File: tif_dumpmode.c
+Line: 1
++	extern int __g_buf_size;
+Function: DumpModeDecode
+Line: 103
++	if (buf + cc >= (char *)buf + __g_buf_size)
++		exit(0);
+File: tif_read.c
+Line: 1
++	extern int __g_buf_size;
+Function: TIFFReadEncodedStrip
+Line: 380
++	if (buf + stripsize >= (char *)buf + __g_buf_size)
++		exit(0);
