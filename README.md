@@ -14,9 +14,42 @@ The benchmark dataset Vul4C and framework for automated vulnerability repair in 
 
 Our benchmark dataset Vul4C contains 133 vulnerabilities over 18 CWE types and 20 software.
 
-Here is the statistics.
+Here is the statistics of Vul4C.
+
+| CWE Type  | Total   | Single-Hunk | Multi-Hunks | Multi-Files |
+| --------  | ------- | ----------- | ----------- | ----------- |
+| CWE-119   | 33      | 15          | 12          | 6           |
+| CWE-125   | 29      | 9           | 10          | 10          |
+| CWE-476   | 15      | 5           | 9           | 1           |
+| CWE-369   | 11      | 9           | 2           | 0           |
+| CWE-190   | 9       | 0           | 6           | 3           |
+| CWE-787   | 8       | 2           | 2           | 4           |
+| CWE-20    | 6       | 1           | 2           | 3           |
+| CWE-416   | 4       | 0           | 4           | 0           |
+| CWE-835   | 4       | 1           | 2           | 1           |
+| CWE-189   | 2       | 1           | 1           | 0           |
+| CWE-617   | 2       | 1           | 1           | 0           |
+| CWE-415   | 1       | 1           | 0           | 0           |
+| CWE-704   | 1       | 0           | 1           | 0           |
+| CWE-770   | 1       | 1           | 0           | 0           |
+| CWE-191   | 1       | 1           | 0           | 0           |
+| CWE-682   | 1       | 0           | 0           | 1           |
+| CWE-843   | 1       | 0           | 1           | 0           |
+| N/A       | 4       | 1           | 2           | 1           |
+| __Total__ | __133__ | __48__      | __55__      | __30__      |
 
 ## 2. Framework
+
+| Venue       | Tool       | Github Repo                                  |
+| ----------- | ---------- | -------------------------------------------- |
+| ESEC/FSE'22 | VulRepair  | <https://github.com/awsm-research/VulRepair> |
+| TSE'22      | VRepair    | <https://github.com/ASSERT-KTH/VRepair>      |
+| ISSTA'22    | VulnFix    | <https://github.com/yuntongzhang/vulnfix>    |
+| TOSEM'20    | ExtractFix | <https://extractfix.github.io/>              |
+| S&P'19      | Senx       | Not open source                              |
+| ICSE'20     | SAVER      | <https://github.com/kupl/SAVER_public/>      |
+| ICSE'18     | FootPatch  | <https://github.com/squaresLab/footpatch>    |
+| TDSC'19     | IntPTI     | |
 
 ## 3. Repository Structure
 
@@ -32,7 +65,7 @@ This repository is structured as follow:
             |----- README.txt 
             |----- exploit
             |----- setup.sh
-|----- Framework (In progress, waiting for updating.)
+|----- Framework
 |----- Results
     |----- Results.xlsx: All experimental results.
     |----- [Vulnerability Repair Tools]
