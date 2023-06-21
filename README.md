@@ -82,4 +82,11 @@ This repository is structured as follow:
 
 ## 4. Usage
 
+Following is a startup command for vul4c you can invoke it on selected repair tool and benchmark.
+
+```
+python3 Framework/vul4c.py --tool "Vulnfix" --software "libxml2" --CVEID "CVE-2017-5969" 
+```
+
 <!-- ## 5. Results -->
+
