@@ -139,6 +139,7 @@ class DockerContainer(object):
                 "volumes": ['{}:{}'.format(self.localhost_dir, self.container_dir)],
                 "privileged": True,
                 "tty": True,
+                "command": "bash",
             }
             if self.gpu:
                 container_run_args["device_requests"]=[docker.types.DeviceRequest(count=-1, capabilities=[['gpu']])]
@@ -167,7 +168,7 @@ class DockerContainer(object):
             raise ex
 
 
-    def exec_command(self, command: str, workdir="/", env = dict()):
+    def exec_command(self, command: str, workdir="/", env = dict(),user="root"):
 
         try:
             docker_cmd = "[{}] {}".format(workdir, command)
@@ -177,7 +178,8 @@ class DockerContainer(object):
                 privileged=True,
                 workdir=workdir,
                 tty=True,
-                environment=env
+                environment=env,
+                user=user
             )
             exit_code=result.exit_code
             output=result.output.decode('utf-8')

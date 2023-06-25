@@ -35,7 +35,7 @@ class VRepair(DockerContainer):
 
 
     def preprocess(self):
-        preprocess_command=f"bash -c \"python3 preprocess.py  {self.old_file_name} {self.new_file_name} {self.cwe_id} {self.cve_id}\""
+        preprocess_command=f"bash -c \"source /root/env.sh && python3 preprocess.py  {self.old_file_name} {self.new_file_name} {self.cwe_id} {self.cve_id}\""
         exit_code,output=self.exec_command(preprocess_command,workdir=self.work_dir)
         if exit_code != 0:
             logger.error(f"An error occurred when the project was preprocessed VRepair")
@@ -44,7 +44,7 @@ class VRepair(DockerContainer):
 
     def inference(self):
         
-        inference_command =f"bash -c \"python3 vrepair_inference.py  {self.old_file_name} {self.new_file_name} {self.cwe_id}\""
+        inference_command =f"bash -c \"source /root/env.sh && python3 vrepair_inference.py  {self.old_file_name} {self.new_file_name} {self.cwe_id}\""
         exit_code,output=self.exec_command(inference_command,workdir=self.work_dir)
         
         if exit_code != 0:
@@ -55,7 +55,7 @@ class VRepair(DockerContainer):
 
 
     def restore(self):
-        restore_command =f"bash -c \"python3 restore.py\""
+        restore_command =f"bash -c \"source /root/env.sh && python3 restore.py\""
         exit_code,output=self.exec_command(restore_command,workdir=self.work_dir)
         
         if exit_code != 0:

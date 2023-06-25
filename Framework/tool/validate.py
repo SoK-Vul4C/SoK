@@ -17,7 +17,7 @@ class Validate(DockerContainer):
             container_dir,
             work_dir,
             container_name,
-            repository_name="vul4c/extractfix",
+            repository_name="vul4c/vulnfix",
             tag_name="1.0",  
             gpu=False
     ):
@@ -43,12 +43,11 @@ class Validate(DockerContainer):
             logger.error("Validate lacks the necessary configuration files")
             raise RuntimeError(f"Validate lacks the necessary configuration files")
         
-        #替换config中的相对路径占位符
         alternate_path_command=f"bash -c \"sed -i 's#<path>#{self.work_dir}#g' {config_file}\""
         self.exec_command(alternate_path_command)
         logger.info(f"alternate the path in config with command {alternate_path_command}")
         
-        #执行setup准备source,执行路径定位到work_dir
+
         setup_command=f"bash -c \"bash {setup_file}\""
         exit_code,output=self.exec_command(setup_command,workdir=self.work_dir)
         if exit_code != 0:
