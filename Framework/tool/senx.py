@@ -64,10 +64,11 @@ class Senx(DockerContainer):
         get_binary_command=f"bash -c \"python3 {self.config_parse_file}\""
         exit_code,output=self.exec_command(get_binary_command,workdir=self.repair_dir)
         info=output.split("\n")
-        self.bin_path=info[0]
-        self.bin_name=info[1]
-        self.cmd=info[2]
+        self.bin_path=info[0].strip()
+        self.bin_name=info[1].strip()
+        self.cmd=info[2].strip()
         self.cp_file(self.bin_path,self.repair_dir)
+
 
         extract_command=f"bash -c \"source /home/user/env.sh && bash {self.insrument_file} {self.bin_name}\""
         exit_code,output=self.exec_command(extract_command,workdir=self.repair_dir)
@@ -86,7 +87,7 @@ class Senx(DockerContainer):
         mkdir_command=f"bash -c \"mkdir {self.result_dir}\""
         exit_code,output=self.exec_command(mkdir_command)
 
-        result_file=os.path.join(self.repair_dir),f"{self.bin_name}.bc.patch"
+        result_file=os.path.join(self.repair_dir,f"{self.bin_name}.bc.patch")
         if self.file_exists(result_file):
             self.cp_file(result_file,self.result_dir)
 

@@ -18,6 +18,7 @@ def execute_command(command: str, show_output=True, env=dict(), dir=None):
     if not dir:
         dir = os.getcwd()
     logger.info(f"[{dir}] {command}")
+
     proc = subprocess.Popen([command], stdout=subprocess.PIPE, shell=True, env=env, cwd=dir)
     output, error = proc.communicate()
     
@@ -50,10 +51,12 @@ def main():
     print(tool)
     print(cveid)
 
+    
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     result_root_dir=os.path.join(root_dir,"vul4c-result")
     if not os.path.exists(result_root_dir):
         os.mkdir(result_root_dir)
+    
     
     result_dir=tool.lower()+"_"+cveid.lower()+"_"+str(int(time.time()))
     result_dir=os.path.join(result_root_dir,result_dir)
@@ -61,7 +64,7 @@ def main():
     init_logger(result_dir)
 
     if tool in ["VulnFix","ExtractFix","Senx"]:
-
+        
         container_name="vul4c_"+tool.lower()+"_"+cveid.lower()+"_"+str(int(time.time()))
         if tool=="VulnFix":
             tool_docker=VulnFix("/tmp","/tmp",os.path.join("/",cveid),container_name)
@@ -72,6 +75,7 @@ def main():
         container_id=tool_docker.container.id
         
 
+        
         temp_dir="/tmp/"+container_name
         os.mkdir(temp_dir)
         tool_config_dir=os.path.join(os.path.dirname(os.path.abspath(__file__)),tool)
@@ -91,9 +95,11 @@ def main():
         cp_to_container(container_id,temp_dir,f"/{cveid}")
         shutil.rmtree(temp_dir)
 
+        
         tool_docker.config()
         tool_docker.repair()
         tool_docker.save_result()
+        
         
         cp_from_container(container_id,"/vul4c_result",result_dir)
 
@@ -102,6 +108,7 @@ def main():
         inference_name="vul4c_"+tool.lower()+"_"+"inference"+cveid.lower()+"_"+stamp
         validate_name="vul4c_"+tool.lower()+"_"+"validate"+"_"+cveid.lower()+"_"+stamp
 
+        
         temp_dir="/tmp/"+inference_name
         os.mkdir(temp_dir)
 
@@ -125,15 +132,17 @@ def main():
         for temp in new_file_name.split('_'):
             if "CWE" in temp:
                 cwe_id=temp
-
+        
         inference_container=VRepair("/tmp","/tmp",f"/{cveid}",inference_name,new_file_name,old_file_name,cwe_id,cveid)
         inference_id=inference_container.container.id
         cp_to_container(inference_id,temp_dir,f"/{cveid}")
         shutil.rmtree(temp_dir)
-
+        
         inference_container.inference()
+        inference_container.restore()
         cp_from_container(inference_id,f"/{cveid}",temp_dir)
-
+        
+        
         validate_container = Validate("/tmp","/tmp",f"/{cveid}",validate_name)
         validate_id=validate_container.container.id
         cp_to_container(validate_id,temp_dir,f"/{cveid}")
@@ -142,7 +151,7 @@ def main():
         validate_container.validate()
         validate_container.save_result()
 
-        cp_from_container(container_id,"/vul4c_result",result_dir)
+        cp_from_container(validate_id,"/vul4c_result",result_dir)
     
     elif tool=="VulRepair":
         stamp=str(int(time.time()))
@@ -150,6 +159,7 @@ def main():
         inference_name="vul4c_"+tool.lower()+"_"+"inference"+cveid.lower()+"_"+stamp
         validate_name="vul4c_"+tool.lower()+"_"+"validate"+"_"+cveid.lower()+"_"+stamp
 
+        
         temp_dir="/tmp/"+inference_name
         os.mkdir(temp_dir)
 
@@ -173,23 +183,31 @@ def main():
         for temp in new_file_name.split('_'):
             if "CWE" in temp:
                 cwe_id=temp
-
+        
         preprocess_container=VRepair("/tmp","/tmp",f"/{cveid}",preprocess_name,new_file_name,old_file_name,cwe_id,cveid)
         preprocess_id=preprocess_container.container.id
         cp_to_container(preprocess_id,temp_dir,f"/{cveid}")
         shutil.rmtree(temp_dir)
-
+        
         preprocess_container.preprocess()
         cp_from_container(preprocess_id,f"/{cveid}",temp_dir)
 
 
+        
         inference_container=VulRepair("/tmp","/tmp",f"/{cveid}",inference_name,cveid)
         inference_id=inference_container.container.id
         cp_to_container(inference_id,temp_dir,f"/{cveid}")
         shutil.rmtree(temp_dir)
-
+        
         inference_container.inference()
         cp_from_container(inference_id,f"/{cveid}",temp_dir)
+        
+        
+        cp_to_container(preprocess_id,os.path.join(temp_dir,"src.txt.predictions"),f"/{cveid}")
+        shutil.rmtree(temp_dir)
+        preprocess_container.restore()
+        cp_from_container(preprocess_id,f"/{cveid}",temp_dir)
+
         
         validate_container = Validate("/tmp","/tmp",f"/{cveid}",validate_name)
         validate_id=validate_container.container.id
@@ -199,7 +217,7 @@ def main():
         validate_container.validate()
         validate_container.save_result()
 
-        cp_from_container(container_id,"/vul4c_result",result_dir)
+        cp_from_container(validate_id,"/vul4c_result",result_dir)
 
     elif tool in ["Saver","FootPatch"]:
         container_name="vul4c_"+tool.lower()+"_"+cveid.lower()+"_"+str(int(time.time()))
@@ -209,6 +227,7 @@ def main():
             tool_docker=FootPatch("/tmp","/tmp",os.path.join("/",cveid),container_name)
         container_id=tool_docker.container.id
 
+        
         temp_dir="/tmp/"+container_name
         os.mkdir(temp_dir)
         tool_config_dir=os.path.join(os.path.dirname(os.path.abspath(__file__)),tool)
@@ -226,6 +245,7 @@ def main():
         tool_docker.repair()
         tool_docker.save_result()
 
+        
         cp_from_container(container_id,"/vul4c_result",result_dir)
 
 

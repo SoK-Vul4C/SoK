@@ -23,7 +23,6 @@ class ExtractFix(DockerContainer):
 
 
     def config(self):
-
         setup_file=os.path.join(self.repair_dir,"setup.sh")
         
         exploit_name=self.find_file(self.repair_dir,1,"test_case*")[0]
@@ -50,7 +49,7 @@ class ExtractFix(DockerContainer):
 
     def repair(self):
         
-        extractfix_command =f"bash -c \"source /ExtractFix/setup.sh && bash run \""
+        extractfix_command =f"bash -c \"source /ExtractFix/setup.sh && bash run 2>&1 |tee extractfix.log\""
         exit_code,output=self.exec_command(extractfix_command,workdir=self.repair_dir)
         
         if exit_code != 0:

@@ -47,7 +47,6 @@ class Validate(DockerContainer):
         self.exec_command(alternate_path_command)
         logger.info(f"alternate the path in config with command {alternate_path_command}")
         
-
         setup_command=f"bash -c \"bash {setup_file}\""
         exit_code,output=self.exec_command(setup_command,workdir=self.work_dir)
         if exit_code != 0:
@@ -74,7 +73,7 @@ class Validate(DockerContainer):
         mkdir_command=f"bash -c \"mkdir {self.result_dir}\""
         exit_code,output=self.exec_command(mkdir_command)
 
-        result_file=os.path.join(self.work_dir,"rutime/result")
+        result_file=os.path.join(self.work_dir,"runtime/result")
         self.cp_file(result_file,self.result_dir)
         
         candidate_dir=os.path.join(self.work_dir,"candidate_result")

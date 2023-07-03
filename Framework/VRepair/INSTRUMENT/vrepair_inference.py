@@ -285,7 +285,7 @@ def main(argv):
     with codecs.open(tgt_path, 'w', 'utf-8') as f:
         f.write(tgt_lines)
 
-    model_path = "./model_step_20000.pt"
+    model_path = "/root/model/model_step_20000.pt"
     output_file = "./src.txt.predictions" 
     os.system(
         f"onmt_translate -model {model_path} -src {src_path} -output {output_file} -beam_size 50 -n_best 50 -batch_size 1 -gpu 1")

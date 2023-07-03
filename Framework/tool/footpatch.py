@@ -31,8 +31,10 @@ class FootPatch(DockerContainer):
             logger.error("FootPatch lacks the necessary configuration files")
             raise RuntimeError(f"FootPatch lacks the necessary configuration files")
         
-        footpatch_command=f"bash -c \"bash {repair_file}"
-
+        footpatch_command=f"bash -c \"bash {repair_file}\""
+        chown_permission=f"bash -c \"chown -R vagrant:vagrant {self.work_dir}\""
+        
+        self.exec_command(chown_permission,workdir=self.work_dir)
         exit_code,output=self.exec_command(footpatch_command, workdir=self.work_dir,user='vagrant')
 
 
@@ -41,10 +43,10 @@ class FootPatch(DockerContainer):
         exit_code,output=self.exec_command(mkdir_command)
 
         infer_dir=os.path.join(self.work_dir,'source/infer-out')
-        exit_code,outputs=self.find_file(infer_dir,2,"patches")
-        output= outputs.split('\n')
+        outputs=self.find_file(infer_dir,3,"patches")
 
-        for dir in output:
+        for dir in outputs:
+            dir=dir.strip()
             if dir != "":
                 self.cp_file(os.path.join(dir,"*"),self.result_dir)
 

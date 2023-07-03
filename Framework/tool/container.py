@@ -155,7 +155,7 @@ class DockerContainer(object):
             logger.error(ex)
             logger.error("unable to build container: image not found")
             raise ex
-        except docker.errors.APIError as ex: 
+        except docker.errors.APIError as ex:  
             logger.error(ex)
             logger.error("unable to build container: docker daemon error")
             raise ex
@@ -169,7 +169,6 @@ class DockerContainer(object):
 
 
     def exec_command(self, command: str, workdir="/", env = dict(),user="root"):
-
         try:
             docker_cmd = "[{}] {}".format(workdir, command)
             logger.info(f"[DOCKER_CMD] {docker_cmd}")
@@ -214,7 +213,7 @@ class DockerContainer(object):
         try:
             self.container.stop(timeout=20) 
             self.get_container_status()
-        except docker.errors.APIError as ex:  # type: ignore
+        except docker.errors.APIError as ex:  
             logger.warning(ex)
             logger.warning("unable to stop container: docker daemon error")
 
@@ -237,8 +236,8 @@ class DockerContainer(object):
     
     def cp_file(self, from_path, to_path):
         cp_command = f"cp -r {from_path} {to_path}"
-        return self.exec_command(cp_command)[0] == 0
+        return self.exec_command(f"bash -c \"{cp_command}\"")[0] == 0
 
     def add_permissions(self, file_path):
         permission_command = f"chmod -R a+x  {file_path}"
-        return self.exec_command(permission_command) != 0
+        return self.exec_command(f"bash -c \"{permission_command}\"") != 0
