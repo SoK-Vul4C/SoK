@@ -50,6 +50,12 @@ class FootPatch(DockerContainer):
             if dir != "":
                 self.cp_file(os.path.join(dir,"*"),self.result_dir)
 
-        
+    
+    def config_validate(self):
+        config_command=f"bash -c \"python3 config_validate.py\""
+        exit_code,output=self.exec_command(config_command,workdir=self.work_dir)
+        if exit_code != 0:
+            logger.error(f"An error occurred when preparing the validate patched file")
+            raise RuntimeError(f"An error occurred when preparing the validate patched file")
     
                 

@@ -60,7 +60,6 @@ class Senx(DockerContainer):
         self.config_parse_file=config_parse_file
 
     def repair(self):
-
         get_binary_command=f"bash -c \"python3 {self.config_parse_file}\""
         exit_code,output=self.exec_command(get_binary_command,workdir=self.repair_dir)
         info=output.split("\n")
@@ -68,7 +67,6 @@ class Senx(DockerContainer):
         self.bin_name=info[1].strip()
         self.cmd=info[2].strip()
         self.cp_file(self.bin_path,self.repair_dir)
-
 
         extract_command=f"bash -c \"source /home/user/env.sh && bash {self.insrument_file} {self.bin_name}\""
         exit_code,output=self.exec_command(extract_command,workdir=self.repair_dir)
@@ -92,5 +90,10 @@ class Senx(DockerContainer):
             self.cp_file(result_file,self.result_dir)
 
         
-    
+    def config_validate(self):
+        config_command=f"bash -c \"python3 config_validate.py\""
+        exit_code,output=self.exec_command(config_command,workdir=self.repair_dir)
+        if exit_code != 0:
+            logger.info(f"senx failed to produce a patch")
+            
                 

@@ -31,23 +31,19 @@ class Validate(DockerContainer):
 
         config_file=os.path.join(self.work_dir,"config")
         setup_file=os.path.join(self.work_dir,"setup.sh")
-        
-        exploit_name=self.find_file(self.work_dir,1,"exploit*")[0]
-        exploit_file=os.path.join(self.work_dir, exploit_name)
-        
-        config_exist=self.file_exists(config_file)
-        setup_exist=self.file_exists(setup_file)
-        exploit_exist=self.file_exists(exploit_file)
+        validate_file=os.path.join(self.work_dir,"validate.sh")
 
-        if not (config_exist and setup_exist and exploit_exist ):
-            logger.error("Validate lacks the necessary configuration files")
-            raise RuntimeError(f"Validate lacks the necessary configuration files")
+        setup_exist=self.file_exists(setup_file)
+        validate_exist=self.file_exists(validate_file)
+
+        if validate_exist:
+            setup_file=validate_file
         
         alternate_path_command=f"bash -c \"sed -i 's#<path>#{self.work_dir}#g' {config_file}\""
         self.exec_command(alternate_path_command)
         logger.info(f"alternate the path in config with command {alternate_path_command}")
         
-        setup_command=f"bash -c \"bash {setup_file}\""
+        setup_command=f"bash -c \"rm -rf source && bash {setup_file}\""
         exit_code,output=self.exec_command(setup_command,workdir=self.work_dir)
         if exit_code != 0:
             logger.error(f"An error occurred when the project was built through setup with an error code {exit_code}")
@@ -77,6 +73,7 @@ class Validate(DockerContainer):
         self.cp_file(result_file,self.result_dir)
         
         candidate_dir=os.path.join(self.work_dir,"candidate_result")
-        self.cp_file(candidate_dir,self.result_dir)
+        if self.dir_exists(candidate_dir):
+            self.cp_file(candidate_dir,self.result_dir)
     
                 

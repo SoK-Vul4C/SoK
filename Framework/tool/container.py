@@ -155,7 +155,7 @@ class DockerContainer(object):
             logger.error(ex)
             logger.error("unable to build container: image not found")
             raise ex
-        except docker.errors.APIError as ex:  
+        except docker.errors.APIError as ex: 
             logger.error(ex)
             logger.error("unable to build container: docker daemon error")
             raise ex
@@ -186,7 +186,7 @@ class DockerContainer(object):
                 for line in output.split("\n"):
                     if line != "":
                         logger.debug(line)
-        except docker.errors.APIError as ex:  
+        except docker.errors.APIError as ex:
             logger.error(ex)
             logger.error(f"the container {self.container.id} server returns an error.")
             raise ex
@@ -213,7 +213,7 @@ class DockerContainer(object):
         try:
             self.container.stop(timeout=20) 
             self.get_container_status()
-        except docker.errors.APIError as ex:  
+        except docker.errors.APIError as ex: 
             logger.warning(ex)
             logger.warning("unable to stop container: docker daemon error")
 
