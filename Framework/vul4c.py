@@ -9,6 +9,7 @@ from tool.vulrepair import VulRepair
 from tool.validate import Validate
 from tool.saver import Saver
 from tool.footpatch import FootPatch
+from tool.intpti import IntPTI
 
 from logger import *
 import subprocess
@@ -253,9 +254,12 @@ def main():
 
         cp_from_container(validate_id,"/vul4c_result",result_dir)
 
-    elif tool == "Saver":
+    elif tool in ["Saver","IntPTI"]:
         container_name="vul4c_"+tool.lower()+"_"+cveid.lower()+"_"+str(int(time.time()))
-        tool_docker=Saver("/tmp","/tmp",os.path.join("/",cveid),container_name)
+        if tool=="Saver":
+            tool_docker=Saver("/tmp","/tmp",os.path.join("/",cveid),container_name)
+        if tool=="IntPTI":
+            tool_docker=IntPTI("/tmp","/tmp",os.path.join("/",cveid),container_name)
         container_id=tool_docker.container.id
 
         temp_dir="/tmp/"+container_name
