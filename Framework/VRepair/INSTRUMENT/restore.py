@@ -58,14 +58,16 @@ def restore():
 
 
 def check_out(pre_version_file_str, post_version_file_str, out_beam, num_tokens, path):
-    try:
-        pre_version_tokens = pre_version_file_str.replace(' //<S2SV>','').split(' ') + ["<S2SV_null>"] * num_tokens
 
-        parse_error=True
-        special = re.compile("^<S2SV_Mod(Start|End)>$")
-        # Check each beam position
-        idx = 0
-        for out_str in out_beam:
+    yizhi_list=list()
+    pre_version_tokens = pre_version_file_str.replace(' //<S2SV>','').split(' ') + ["<S2SV_null>"] * num_tokens
+
+    parse_error=True
+    special = re.compile("^<S2SV_Mod(Start|End)>$")
+    # Check each beam position
+    idx = 0
+    for out_str in out_beam:
+        try:
             idx = idx + 1
             chk_file_str=""
             pre_tokens = ["<S2SV_null>"] * num_tokens
@@ -116,20 +118,22 @@ def check_out(pre_version_file_str, post_version_file_str, out_beam, num_tokens,
                 parse_error=False    
             out = chk_file_str[:-1].replace('<S2SV_blank>',' ')  
             dir_path = os.path.join(path, str(idx))
-        
+            # with open("skd", mode='a')as f:
+            #     f.write(out+"\n")
             new = post_version_file_str.replace(' //<S2SV>','').replace('<S2SV_blank>',' ') 
             old = pre_version_file_str.replace(' //<S2SV>','').replace('<S2SV_blank>',' ')
             if out != old:
                 os.makedirs(dir_path, exist_ok=True)
                 out_path = os.path.join(dir_path, 'out')
                 with codecs.open(out_path, 'w', 'utf-8') as f:
-                    f.write(out)             
-            if chk_file_str[:-1] == post_version_file_str.replace(' //<S2SV>',''):
-                break
-        
-    except Exception as e:
-        print("Check_out fail: "+str(e))
-
+                    f.write(out)
+            else:
+               yizhi_list.append(str(idx)) 
+            #if chk_file_str[:-1] == post_version_file_str.replace(' //<S2SV>',''):
+                #break
+        except Exception as e:
+            print("Check_out fail: "+str(e)+str(idx))
+    return yizhi_list
 
 if __name__=="__main__":
     num_tokens = 3
@@ -157,8 +161,10 @@ if __name__=="__main__":
         if post_version_file_str.endswith(' '):
             post_version_file_str=post_version_file_str[:-1]
         if True:
-            check_out(pre_version_file_str, post_version_file_str, out_beam, num_tokens,restore_path)
-    
+            yizhi_list=check_out(pre_version_file_str, post_version_file_str, out_beam, num_tokens,restore_path)
+
+    with open("yizhi.list",mode='w') as f:
+        f.write('|'.join(yizhi_list))
 
     if not os.path.isdir('runtime'):
         os.mkdir('runtime')
@@ -168,5 +174,3 @@ if __name__=="__main__":
     restore_path = '/tmp/runtime'
     shutil.rmtree(restore_path)
 
-
-  
