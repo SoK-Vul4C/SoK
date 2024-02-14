@@ -1,4 +1,4 @@
-# SoK: A Framework for Understanding and Evaluating Automated C/C++ Vulnerability Repair Tools
+# SoK: Automated Vulnerability Repair
 
 The benchmark dataset Vul4C and framework for automated vulnerability repair in C/C++. 
 
@@ -12,31 +12,32 @@ The benchmark dataset Vul4C and framework for automated vulnerability repair in 
 
 ## 1. Benchmark Dataset Vul4C
 
-Our benchmark dataset Vul4C contains 133 vulnerabilities over 18 CWE types and 20 software.
+Our benchmark dataset Vul4C contains 140 vulnerabilities over 19 CWE types and 23 software.
 
 Here is the statistics of Vul4C.
 
-| CWE Type  |  Total  | Single-Hunk | Multi-Hunks | Multi-Files |
-| :-------: | :-----: | :---------: | :---------: | :---------: |
-|  CWE-119  |   33    |     15      |     12      |      6      |
-|  CWE-125  |   29    |      9      |     10      |     10      |
-|  CWE-476  |   15    |      5      |      9      |      1      |
-|  CWE-369  |   11    |      9      |      2      |      0      |
-|  CWE-190  |    9    |      0      |      6      |      3      |
-|  CWE-787  |    8    |      2      |      2      |      4      |
-|  CWE-20   |    6    |      1      |      2      |      3      |
-|  CWE-416  |    4    |      0      |      4      |      0      |
-|  CWE-835  |    4    |      1      |      2      |      1      |
-|  CWE-189  |    2    |      1      |      1      |      0      |
-|  CWE-617  |    2    |      1      |      1      |      0      |
-|  CWE-415  |    1    |      1      |      0      |      0      |
-|  CWE-704  |    1    |      0      |      1      |      0      |
-|  CWE-770  |    1    |      1      |      0      |      0      |
-|  CWE-191  |    1    |      1      |      0      |      0      |
-|  CWE-682  |    1    |      0      |      0      |      1      |
-|  CWE-843  |    1    |      0      |      1      |      0      |
-|    N/A    |    4    |      1      |      2      |      1      |
-| __Total__ | __133__ |   __48__    |   __55__    |   __30__    |
+| CWE Type  |  Total  | Single-Line | Single-Hunk | Multi-Hunks | Multi-Files |
+| :-------: | :-----: | :---------: | :---------: | :---------: | :---------: |
+|  CWE-119  |   33    |     10      |      6      |     11      |      6      |
+|  CWE-125  |   29    |      3      |      4      |     12      |     10      |
+|  CWE-476  |   15    |      1      |      4      |      9      |      1      |
+|  CWE-369  |   11    |      1      |      8      |      2      |      0      |
+|  CWE-190  |    9    |      0      |      0      |      6      |      3      |
+|  CWE-787  |   14    |      3      |      1      |      6      |      4      |
+|  CWE-20   |    6    |      0      |      2      |      2      |      2      |
+|  CWE-416  |    4    |      0      |      0      |      4      |      0      |
+|  CWE-835  |    4    |      0      |      1      |      2      |      1      |
+|  CWE-189  |    2    |      1      |      0      |      1      |      0      |
+|  CWE-617  |    2    |      0      |      1      |      1      |      0      |
+|  CWE-120  |    1    |      0      |      0      |      0      |      1      |
+|  CWE-415  |    1    |      0      |      1      |      0      |      0      |
+|  CWE-704  |    1    |      0      |      0      |      1      |      0      |
+|  CWE-770  |    1    |      0      |      1      |      0      |      0      |
+|  CWE-191  |    1    |      1      |      0      |      0      |      0      |
+|  CWE-682  |    1    |      0      |      0      |      0      |      1      |
+|  CWE-843  |    1    |      0      |      0      |      1      |      0      |
+|    N/A    |    4    |      0      |      1      |      2      |      1      |
+| __Total__ | __140__ |   __20__    |   __30__    |   __60__    |   __30__    |
 
 ## 2. Framework
 
