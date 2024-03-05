@@ -78,4 +78,9 @@ class ExtractFix(DockerContainer):
         if exit_code != 0:
             logger.error(f"An error occurred when preparing the validate patched file")
             raise RuntimeError(f"An error occurred when preparing the validate patched file")
-                
+
+    def run(self):
+        self.config()
+        self.repair()
+        self.save_result()
+        self.config_validate()

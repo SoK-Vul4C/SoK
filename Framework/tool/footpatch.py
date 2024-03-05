@@ -58,4 +58,8 @@ class FootPatch(DockerContainer):
             logger.error(f"An error occurred when preparing the validate patched file")
             raise RuntimeError(f"An error occurred when preparing the validate patched file")
     
-                
+    
+    def run(self):
+        self.repair()
+        self.save_result()
+        self.config_validate()

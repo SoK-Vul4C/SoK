@@ -404,7 +404,7 @@ def main():
     # Evaluation
     results = {}  
     if args.do_test:
-        model_file="/root/M1_new_train/saved_models/checkpoint-best-loss/model.bin"
+        model_file="/root/model/vulrepair.model"
         model.load_state_dict(torch.load(model_file, map_location=args.device))
 
         # if args.model_name_or_path != "MickyMike/VulRepair":

@@ -64,4 +64,6 @@ class VRepair(DockerContainer):
         else:
             logger.info("restore ended successfully")
     
-                
+    def run(self):
+        self.inference()
+        self.restore()

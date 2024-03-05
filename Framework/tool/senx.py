@@ -95,5 +95,10 @@ class Senx(DockerContainer):
         exit_code,output=self.exec_command(config_command,workdir=self.repair_dir)
         if exit_code != 0:
             logger.info(f"senx failed to produce a patch")
-            
+    
+    def run(self):
+        self.config()
+        self.repair()
+        self.save_result()
+        self.config_validate()
                 

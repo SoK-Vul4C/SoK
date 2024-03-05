@@ -76,4 +76,8 @@ class Validate(DockerContainer):
         if self.dir_exists(candidate_dir):
             self.cp_file(candidate_dir,self.result_dir)
     
+    def run(self):
+        self.config()
+        self.validate()
+        self.save_result()
                 
