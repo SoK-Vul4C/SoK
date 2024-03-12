@@ -49,7 +49,7 @@ class Test(DockerContainer):
 
     #fix-file-path save the relative path of fix file and split with "|"
     def parse_config_file(self, config_file):
-        with open(config_file) as f:
+        with open(config_file, mode="r") as f:
             contents=f.read().split("\n")
         dic={}
         for content in contents:
@@ -61,8 +61,8 @@ class Test(DockerContainer):
 
     def test(self):
         test_result=dict()
-        for dir in os.listdir(self.data.runtime):
-            candidate_dir=os.path.join(self.data.runtime,dir)
+        for dir in os.listdir(self.data.runtime_host):
+            candidate_dir=os.path.join(self.data.runtime_host,dir)
             if not os.path.isdir(candidate_dir):
                 # candidate_list.append(candidate_dir)
                 continue
@@ -82,9 +82,12 @@ class Test(DockerContainer):
             else:
                 new_files=[os.path.join(candidate_dir,item) for item in files]
             
+            #replace the abs path in host with th abs path in container
+            new_files=[self.data.host_path_2_container_path(item) for item in new_files] 
+
             new_files="|".join(new_files)
             
-            test_command=f"bash -c \"python3 {self.test} {self.data.source} {new_files} {self.data.fix_file}\""
+            test_command=f"bash -c \"bash {self.test_file} {self.data.source} {new_files} {self.data.fix_file}\""
             exit_code,output=self.exec_command(test_command,workdir=self.work_dir)
         
             if exit_code != 0:
@@ -93,18 +96,27 @@ class Test(DockerContainer):
                 test_result[dir]=True
         return test_result
 
+    def save_result(self,test_result_dic):
 
-    def run(self):
-        self.config()
-        test_result=self.test()
         contents=""
-        for key,value in test_result.items():
+        for key,value in test_result_dic.items():
             if value:
                 contents+=f"{key}:Pass\n"
             else:
                 contents+=f"{key}:Fail\n"
-        test_result_file=os.path.join(self.work_dir,"runtime/test_result")
+        test_result_file=os.path.join(self.data.abs_path_host,"test_result")
+
         with open(test_result_file, mode='w') as f:
             f.write(contents)
+
+        mkdir_command=f"bash -c \"mkdir {self.result_dir}\""
+        exit_code,output=self.exec_command(mkdir_command)
+
+        self.cp_file(test_result_file,self.result_dir)
+
+    def run(self):
+        self.config()
+        test_result=self.test()
+        self.save_result(test_result)
     
                 

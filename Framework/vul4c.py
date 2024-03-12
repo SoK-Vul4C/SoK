@@ -36,8 +36,8 @@ def cp_to_container(container_id: str, from_path: str, to_path: str):
     copy_command = f"docker cp {from_path} {container_id}:{to_path}"
     execute_command(copy_command)
 
-def parse_config(cve_dir,cveid):
-    cve_config=os.path.join(cve_dir,"config")
+def parse_config(cve_runtime_dir, container_dir):
+    cve_config=os.path.join(cve_runtime_dir, "config")
     if not os.path.exists(cve_config):
         return None
     with open(cve_config,mode="r") as f:
@@ -48,7 +48,7 @@ def parse_config(cve_dir,cveid):
             l=content.split("=")
             dic[l[0]]=l[1].strip()
     
-    d=Data(f"/{cveid}",dic["binary"],dic["cmd"],dic["exploit"],dic["build-cmd"],dic["fix-file-path"],dic["fix-loc"],dic["crash-file-path"],dic["crash-loc"])
+    d=Data(cve_runtime_dir, container_dir, dic["binary"], dic["cmd"], dic["exploit"], dic["build-cmd"], dic["fix-file-path"], dic["fix-loc"], dic["crash-file-path"], dic["crash-loc"])
     return d
 
 def main():
@@ -92,20 +92,25 @@ def main():
     if not os.path.exists(cve_dir):
         logger.info("cve config dir dont exist, please check your software and cveid")
         sys.exit(1)
-    instrument_dir=os.path.join(tool_config_dir,"INSTRUMENT")
-    d=parse_config(cve_dir, cveid)
 
     cve_runtime_dir=os.path.join(os.path.join(os.path.join(vul4c_runtime_dir,tool),software),cveid)
     if os.path.exists(cve_runtime_dir):
         shutil.rmtree(cve_runtime_dir)
     os.makedirs(cve_runtime_dir,exist_ok=True)
-    if os.path.isdir(instrument_dir):
-        copy_command=f"cp -r {instrument_dir}/* {cve_dir}/* {cve_runtime_dir}"
-    else:
-        copy_command=f"cp -r {cve_dir}/* {cve_runtime_dir}"
+
+    test_script_dir=os.path.join(os.path.join(root_dir,"test"),software)
+    instrument_dir=os.path.join(tool_config_dir,"INSTRUMENT")
+    copy_command=f"cp -r {cve_dir}/* {cve_runtime_dir}"
     execute_command(copy_command)
+    if os.path.isdir(test_script_dir):
+        copy_command=f"cp -r {test_script_dir}/* {cve_runtime_dir}"
+        execute_command(copy_command)
+    if os.path.isdir(instrument_dir):
+        copy_command=f"cp -r {instrument_dir}/* {cve_runtime_dir}"
+        execute_command(copy_command)
 
     container_dir=f"/{cveid}"
+    d=parse_config(cve_runtime_dir, container_dir)
 
     if tool in ["VulnFix"]:
         container_name="vul4c_"+tool.lower()+"_"+cveid.lower()+"_"+stamp
