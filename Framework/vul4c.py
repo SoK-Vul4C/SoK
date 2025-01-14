@@ -6,6 +6,8 @@ from tool.extractfix import ExtractFix
 from tool.senx import Senx
 from tool.vrepair import VRepair
 from tool.vulrepair import VulRepair
+from tool.vulmaster import VulMaster
+from tool.vqm import VQM
 from tool.validate import Validate
 from tool.saver import Saver
 from tool.footpatch import FootPatch
@@ -153,7 +155,7 @@ def main():
         execute_command(f"mv {validate_result_dir}/* {result_dir}/vul4c_result")
         shutil.rmtree(validate_result_dir)
 
-    elif tool in ["VRepair", "VulRepair"]:
+    elif tool in ["VRepair", "VulRepair","VulMaster","VQM"]:
         inference_name="vul4c_"+tool.lower()+"_"+"inference"+cveid.lower()+"_"+stamp
         validate_name="vul4c_"+tool.lower()+"_"+"validate"+"_"+cveid.lower()+"_"+stamp
         # temp_dir="/tmp/"+inference_name
@@ -169,18 +171,18 @@ def main():
         
         if tool == "VRepair":
             inference_container=VRepair(cve_runtime_dir, container_dir, container_dir, inference_name, new_file_name, old_file_name, cwe_id, cveid)
-        else:
+        elif tool == "VulRepair":
             inference_container=VulRepair(cve_runtime_dir, container_dir, container_dir, inference_name, new_file_name, old_file_name, cwe_id, cveid)
-        
+        elif tool == "VulMaster":
+            inference_container=VulMaster(cve_runtime_dir, container_dir, container_dir, inference_name, new_file_name, old_file_name, cwe_id, cveid)
+        elif tool == "VQM":
+            inference_container=VQM(cve_runtime_dir, container_dir, container_dir, inference_name, new_file_name, old_file_name, cwe_id, cveid)
+
         inference_id=inference_container.container.id
-        # cp_to_container(inference_id,cve_runtime_dir,f"/{cveid}")
         inference_container.run()
-        # cp_from_container(inference_id,f"/{cveid}",temp_dir)
 
         validate_container = Validate(cve_runtime_dir, container_dir, container_dir, validate_name)
         validate_id=validate_container.container.id
-        # cp_to_container(validate_id,temp_dir,f"/{cveid}")
-        # shutil.rmtree(temp_dir)
 
         validate_container.run()
         cp_from_container(validate_id,"/vul4c_result",result_dir)
