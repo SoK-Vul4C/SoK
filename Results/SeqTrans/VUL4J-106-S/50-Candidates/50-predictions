@@ -1,0 +1,50 @@
+protected static Map< String , Object > var1
+protected static final Map< String , Object > var1
+protected static Map< K , Object > var1
+protected static final Map< K , Object > var1
+protected static final Map< HivePrivilegeObject > var1
+protected static final Map< String , V > var1
+protected static Set< K , Object > var1
+protected static Map< String , V > var1
+protected static final Map< K , V > var1
+protected static Map< K , V > var1
+protected static final Map< ACL > var1
+protected static final Map< WeakReference > var1
+protected static final Class<? > var1
+protected static final Map< GroupConversionType > var1
+protected static final Map< E > var1
+protected static final Map< Class<? >> var1
+protected static Map< Class<? > , V > var1
+protected static final Map< ResourcePermission > var1
+protected static final Map< WriteEntity > var1
+protected static final Map< EmbeddedCacheManager > var1
+protected static final Map< SimpleAttributeDefinition > var1
+protected static final Map< String , Tag > var1
+protected static final Map< String , ServiceAuthenticationDetails > var1
+protected static Set< K , V > var1
+protected static Map< Class<? > , Object > var1
+protected static final Map< EventAuditRecordParameters > var1
+protected static final Map< ReadEntity > var1
+protected static Set< Map< String , Object > var1
+protected static< Map< String , Object > var1
+protected static Map< Yaml , Object > var1
+protected static final Map<? >> var1
+protected static final Map< K , String > var1
+private static final Class<? > var1
+protected static final Map< C > var1
+protected static Map< Class<? > , Tag > var1
+protected static Map< Class<? >> var1
+protected static final Map< Yaml , Object > var1
+protected static final Map< String , String > var1
+protected static Map< Class<? > , T > var1
+protected static final Map< K , Tag > var1
+protected static Set< Class<? > var1
+protected static final Map< K , ServiceAuthenticationDetails > var1
+protected static Map< Class<? >> >> var1
+private static final Map< Class<? >> var1
+protected static Map< Class<? > , String > var1
+protected static Map< Class<? > , ServiceAuthenticationDetails > var1
+protected static Map< Class<? > , >> var1
+protected static final Map< Class<? >> > var1
+protected static final Map< Class<? extends >> var1
+protected static final Map< Class<? extends Entity > var1
