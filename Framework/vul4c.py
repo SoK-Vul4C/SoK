@@ -14,6 +14,7 @@ from tool.footpatch import FootPatch
 from tool.intpti import IntPTI
 from tool.data import Data
 from tool.test import Test
+from tool.crashrepair import CrashRepair
 
 from logger import *
 import subprocess
@@ -199,6 +200,15 @@ def main():
         tool_docker.repair()
         tool_docker.save_result()
 
+        cp_from_container(container_id,"/vul4c_result",result_dir)
+
+    elif tool in ["CrashRepair"]:
+        container_name="vul4c_"+tool.lower()+"_"+cveid.lower()+"_"+stamp
+        tool_docker=CrashRepair(cve_runtime_dir, container_dir, software, cveid, container_name)
+        container_id=tool_docker.container.id
+        # cp_to_container(container_id,cve_runtime_dir,f"/{cveid}")
+        tool_docker.repair()
+        tool_docker.save_result()
         cp_from_container(container_id,"/vul4c_result",result_dir)
 
     else:
