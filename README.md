@@ -18,9 +18,9 @@ Here is the statistics of Vul4C.
 
 | CWE Type  |  Total  | Single-Line | Single-Hunk | Multi-Hunks | Multi-Files |
 | :-------: | :-----: | :---------: | :---------: | :---------: | :---------: |
-|  CWE-119  |   33    |     10      |      6      |     11      |      6      |
+|  CWE-119  |   35    |     10      |      7      |     12      |      6      |
 |  CWE-125  |   29    |      3      |      4      |     12      |     10      |
-|  CWE-476  |   15    |      1      |      4      |      9      |      1      |
+|  CWE-476  |   16    |      1      |      4      |     10      |      1      |
 |  CWE-369  |   11    |      1      |      8      |      2      |      0      |
 |  CWE-190  |    9    |      0      |      0      |      6      |      3      |
 |  CWE-787  |   14    |      3      |      1      |      6      |      4      |
@@ -36,21 +36,24 @@ Here is the statistics of Vul4C.
 |  CWE-191  |    1    |      1      |      0      |      0      |      0      |
 |  CWE-682  |    1    |      0      |      0      |      0      |      1      |
 |  CWE-843  |    1    |      0      |      0      |      1      |      0      |
-|    N/A    |    4    |      0      |      1      |      2      |      1      |
-| __Total__ | __140__ |   __20__    |   __30__    |   __60__    |   __30__    |
+|    N/A    |    5    |      0      |      1      |      3      |      1      |
+| __Total__ | __144__ |   __20__    |   __31__    |   __63__    |   __30__    |
 
 ## 2. Framework
 
-|    Tool    |    Venue    | Github Repo                                  |
-| :--------: | :---------: | :------------------------------------------- |
-| VulRepair  | ESEC/FSE'22 | <https://github.com/awsm-research/VulRepair> |
-|  VRepair   |   TSE'22    | <https://github.com/ASSERT-KTH/VRepair>      |
-|  VulnFix   |  ISSTA'22   | <https://github.com/yuntongzhang/vulnfix>    |
-| ExtractFix |  TOSEM'20   | <https://extractfix.github.io/>              |
-|    Senx    |   S&P'19    | Not open source                              |
-|   SAVER    |   ICSE'20   | <https://github.com/kupl/SAVER_public/>      |
-| FootPatch  |   ICSE'18   | <https://github.com/squaresLab/footpatch>    |
-|   IntPTI   |   TDSC'19   | https://github.com/45258E9F/IntPTI           |
+|     Tool    |    Venue    | Github Repo                                  |
+| :---------: | :---------: | :------------------------------------------- |
+|  VulRepair  |  FSE'22     | <https://github.com/awsm-research/VulRepair> |
+|   VRepair   |  TSE'22     | <https://github.com/ASSERT-KTH/VRepair>      |
+|     VQM     |  TOSEM'24   | <https://github.com/awsm-research/VQM>       |
+|  VulMaster  |  ICSE'24    | <https://github.com/soarsmu/VulMaster_>      |
+| ExtractFix  |  TOSEM'20   | <https://extractfix.github.io/>              |
+|  VulnFix    |  ISSTA'22   | <https://github.com/yuntongzhang/vulnfix>    |
+| CrashRepair |  TOSEM'24   | <https://github.com/nus-apr/CrashRepair>     |
+|    Senx     |  S&P'19     | Not open source                              |
+|   SAVER     |  ICSE'20    | <https://github.com/kupl/SAVER_public/>      |
+| FootPatch   |  ICSE'18    | <https://github.com/squaresLab/footpatch>    |
+|   IntPTI    |  TDSC'19    | <https://github.com/45258E9F/IntPTI>         |
 
 ## 3. Repository Structure
 
