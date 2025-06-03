@@ -1,0 +1,54 @@
+protected void extractFile( final File srcF, final File dir, final InputStream compressedInputStream,
+                            final String entryName, final Date entryDate, final boolean isDirectory,
+                            final Integer mode, String symlinkDestination )
+    throws IOException, ArchiverException
+{
+    final File f = new File(dir, entryName).getCanonicalFile();
+
+    // Check if the file is outside the destination directory
+    if (!f.getPath().startsWith(dir.getCanonicalPath() + File.separator)) {
+        throw new ArchiverException("Entry is outside the destination directory: " + f.getPath());
+    }
+
+    if (!isOverwrite() && f.exists() && (f.lastModified() >= entryDate.getTime()))
+    {
+        // File already exists and up to date, no need to extract
+        return;
+    }
+
+    // create intermediary directories if needed
+    final File dirF = f.getParentFile();
+    if (dirF != null)
+    {
+        dirF.mkdirs();
+    }
+
+    if (!StringUtils.isEmpty(symlinkDestination))
+    {
+        SymlinkUtils.createSymbolicLink(f, new File(symlinkDestination));
+    }
+    else if (isDirectory)
+    {
+        f.mkdirs();
+    }
+    else
+    {
+        OutputStream out = null;
+        try
+        {
+            out = new FileOutputStream(f);
+            IOUtil.copy(compressedInputStream, out);
+        }
+        finally
+        {
+            IOUtil.close(out);
+        }
+    }
+
+    f.setLastModified(entryDate.getTime());
+
+    if (!isIgnorePermissions() && mode != null && !isDirectory)
+    {
+        ArchiveEntryUtils.chmod(f, mode);
+    }
+}

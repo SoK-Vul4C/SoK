@@ -1,0 +1,36 @@
+public Calendar ceil(Calendar cal) {
+    Calendar twoYearsFuture = (Calendar) cal.clone();
+    twoYearsFuture.add(Calendar.YEAR, 2);
+    OUTER: while (true) {
+        if (cal.compareTo(twoYearsFuture) > 0) {
+            // we went too far into the future
+            throw new RareOrImpossibleDateException();
+        }
+        boolean modified = false;
+        for (CalendarField f : CalendarField.ADJUST_ORDER) {
+            int cur = f.valueOf(cal);
+            int next = f.ceil(this, cur);
+
+            if (cur == next) continue; // this field is already in a good shape, move on to next
+            
+            for (CalendarField l = f.lowerField; l != null; l = l.lowerField) {
+                l.clear(cal);
+            }
+
+            if (next < 0) {
+                f.rollUp(cal, 1);
+                f.setTo(cal, f.first(this));
+                continue OUTER;
+            } else {
+                f.setTo(cal, next);
+                if (f.redoAdjustmentIfModified(cur, next)) {
+                    modified = true;
+                    break;
+                }
+            }
+        }
+        if (!modified) {
+            return cal; // all fields adjusted
+        }
+    }
+}
