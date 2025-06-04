@@ -1,30 +1,35 @@
-# SoK: Automated Vulnerability Repair
+# SoK: Automated Vulnerability Repair: Methods, Tools, and Assessments
 
-The benchmark dataset Vul4C and framework for automated vulnerability repair in C/C++. 
+The benchmark dataset Vul4C and experiment results for automated vulnerability repair tools in C/C++. 
 
 ## Table of Contents
 
 1. [Benchmark Dataset Vul4C](#1-benchmark-dataset-vul4c)
-2. [Framework](#2-framework)
+2. [Experimental Tools](#2-experimental-tools)
 3. [Repository Structure](#3-repository-structure)
 4. [Usage](#4-usage)
 <!-- 5. [Results](#5-results) -->
 
 ## 1. Benchmark Dataset Vul4C
 
-Our benchmark dataset Vul4C contains 140 vulnerabilities over 19 CWE types and 23 software.
+Our benchmark dataset Vul4C contains 144 vulnerabilities over 19 CWE types and 23 software.
 
 Here is the statistics of Vul4C.
 
-| CWE Type  |  Total  | Single-Line | Single-Hunk | Multi-Hunks | Multi-Files |
+**SH-SL** = Single-Hunk, Single-Line; **SH-ML** = Single-Hunk, Multiple-Line; 
+
+**MH-SF** = Multiple-Hunk, Single-File; **MH-SF** = Multiple-Hunk, Multiple-File.
+
+
+| CWE Type  |  Total  | SH-SL       | SH-ML       | MH-SF       | MH-MF       |
 | :-------: | :-----: | :---------: | :---------: | :---------: | :---------: |
-|  CWE-119  |   35    |     10      |      7      |     12      |      6      |
-|  CWE-125  |   29    |      3      |      4      |     12      |     10      |
+|  CWE-119  |   35    |      7      |      11     |     11      |      6      |
+|  CWE-125  |   29    |      2      |      5      |     12      |     10      |
 |  CWE-476  |   16    |      1      |      4      |     10      |      1      |
 |  CWE-369  |   11    |      1      |      8      |      2      |      0      |
 |  CWE-190  |    9    |      0      |      0      |      6      |      3      |
-|  CWE-787  |   14    |      3      |      1      |      6      |      4      |
-|  CWE-20   |    6    |      0      |      2      |      2      |      2      |
+|  CWE-787  |   14    |      4      |      1      |      5      |      4      |
+|  CWE-20   |    6    |      0      |      1      |      2      |      3      |
 |  CWE-416  |    4    |      0      |      0      |      4      |      0      |
 |  CWE-835  |    4    |      0      |      1      |      2      |      1      |
 |  CWE-189  |    2    |      1      |      0      |      1      |      0      |
@@ -37,11 +42,13 @@ Here is the statistics of Vul4C.
 |  CWE-682  |    1    |      0      |      0      |      0      |      1      |
 |  CWE-843  |    1    |      0      |      0      |      1      |      0      |
 |    N/A    |    5    |      0      |      1      |      3      |      1      |
-| __Total__ | __144__ |   __20__    |   __31__    |   __63__    |   __30__    |
+| __Total__ | __144__ |   __17__    |   __35__    |   __61__    |   __31__    |
 
-## 2. Framework
+## 2. Experimental Tools
 
-|     Tool    |    Venue    | Github Repo                                  |
+### 2.1 Automated Vulnerability Repair Tools
+
+|     Tool    |    Venue    | Repository                                   |
 | :---------: | :---------: | :------------------------------------------- |
 |  VulRepair  |  FSE'22     | <https://github.com/awsm-research/VulRepair> |
 |   VRepair   |  TSE'22     | <https://github.com/ASSERT-KTH/VRepair>      |
@@ -50,10 +57,22 @@ Here is the statistics of Vul4C.
 | ExtractFix  |  TOSEM'20   | <https://extractfix.github.io/>              |
 |  VulnFix    |  ISSTA'22   | <https://github.com/yuntongzhang/vulnfix>    |
 | CrashRepair |  TOSEM'24   | <https://github.com/nus-apr/CrashRepair>     |
-|    Senx     |  S&P'19     | Not open source                              |
+|    Senx     |  S&P'19     | Not open source,but we asked the artifacts from the authors|
 |   SAVER     |  ICSE'20    | <https://github.com/kupl/SAVER_public/>      |
 | FootPatch   |  ICSE'18    | <https://github.com/squaresLab/footpatch>    |
 |   IntPTI    |  TDSC'19    | <https://github.com/45258E9F/IntPTI>         |
+|   Seader    |  ICPC'22    | <https://github.com/NiSE-Virginia-Tech/ying-ICPC-2022>|
+|   SeqTrans  |  TSE'23     | <https://github.com/chijianlei/SeqTrans>     |
+
+
+### 2.2 Automated Program Repair Tools
+
+|     Tool    |    Venue    | Repository                                   |
+| :---------: | :---------: | :------------------------------------------- |
+|   CquenceR  |  TSE'21     | <https://github.com/epicosy/CquenceR>        |
+|   NTR       |  ICSE'23    | <https://sites.google.com/view/neuraltemplaterepair>|
+| ThinkRepair |  ISSTA'24   | <https://github.com/vinci-grape/ThinkRepair> |
+|   SRepair   |  Arxiv'24   | <https://github.com/GhabiX/SRepair>          |
 
 ## 3. Repository Structure
 
