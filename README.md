@@ -96,6 +96,12 @@ This repository is structured as follow:
                 |----- Compilable Patches: This folder contains all successfully compiled patches within all candidate patches.
                 |----- Plausible Patches: This folder contains all patches that successfully pass vulnerability exploit test within all compilable patches.
                 |----- Correct Patches: This folder contains all correct patches assessed by humans.
+|----- test
+    |----- [Software]
+        |----- test.sh: Script used for compiling and testing the software.
+|----- train_valid_data
+    |----- train.csv: Train data for learning based tools.
+    |----- valid.csv: Valid data for learning based tools.
 |----- README.md
 ```
 
