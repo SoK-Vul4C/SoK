@@ -56,7 +56,7 @@ Here is the statistics of Vul4C.
 |  VulMaster  |  ICSE'24    | <https://github.com/soarsmu/VulMaster_>      |
 | ExtractFix  |  TOSEM'20   | <https://extractfix.github.io/>              |
 |  VulnFix    |  ISSTA'22   | <https://github.com/yuntongzhang/vulnfix>    |
-|    Senx     |  S&P'19     | Not open source,but we asked the artifacts from the authors|
+|    Senx     |  S&P'19     | Not open source, but we asked the artifacts from the authors|
 |   Seader    |  ICPC'22    | <https://github.com/NiSE-Virginia-Tech/ying-ICPC-2022>|
 |   SeqTrans  |  TSE'23     | <https://github.com/chijianlei/SeqTrans>     |
 
