@@ -107,9 +107,9 @@ This repository is structured as follow:
 
 ## 4. Usage
 
-Please ensure that you have properly installed docker and Docker SDK for Python before using.
+Please ensure that you have properly installed docker and Docker SDK for Python before starting.
 
-You can use our provided vul4c series images, such as vul4c/vulnfix:1.0.
+You can use our experimental docker images, such as `vul4c/vulnfix:1.0`.
 
 To use the Vul4C benchmark, you can follow these steps: 
 
@@ -117,13 +117,17 @@ To use the Vul4C benchmark, you can follow these steps:
 
 2. Execute the exploit according to the commands in `README.txt` under the CVE directory. You need to replace `/path/to/compile/source` with the `source` path generated in step 1, and replace `$FILE` with the exploit path.  
 
-We will automate Vul4C's repair and testing in the future. To reproduce the experiment, you can use the following command to startup on a selected repair tool and benchmark.
+We will automate Vul4C's testing process in the future.
+
+To reproduce the experiment, you can use the following command to startup on a selected repair tool and benchmark.
 
 ```
 python3 Framework/vul4c.py --tool "VulnFix" --software "jasper" --CVEID "CVE-2016-10248" 
 ```
 
 You can find the results in the folder `vul4c-result`,and the folder where the results will be stored will be named ` $tool_$CVEID_$timestamp`
+
+Other experimental tools could be found at docker repository `vul4c`.
 
 <!-- ## 5. Results -->
 
