@@ -65,10 +65,10 @@ Here is the statistics of Vul4C.
 
 |     Tool    |    Venue    | Repository                                   |
 | :---------: | :---------: | :------------------------------------------- |
-|   CquenceR  |  TSE'21     | <https://github.com/epicosy/CquenceR>        |
+|   CquenceR  |  ISSRE'21     | <https://github.com/epicosy/CquenceR>        |
 |   NTR       |  ICSE'25    | <https://sites.google.com/view/neuraltemplaterepair>|
 | ThinkRepair |  ISSTA'24   | <https://github.com/vinci-grape/ThinkRepair> |
-|   SRepair   |  Arxiv'24   | <https://github.com/GhabiX/SRepair>          |
+|   SRepair   |  arXiv'24   | <https://github.com/GhabiX/SRepair>          |
 
 ## 3. Repository Structure
 
