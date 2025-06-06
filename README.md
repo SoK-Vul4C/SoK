@@ -100,8 +100,8 @@ This repository is structured as follow:
     |----- [Software]
         |----- test.sh: Script used for compiling and testing the software.
 |----- train_valid_data
-    |----- train.csv: Train data for learning based tools.
-    |----- valid.csv: Valid data for learning based tools.
+    |----- train.csv: Train data for learning-based tools.
+    |----- valid.csv: Valid data for learning-based tools.
 |----- README.md
 ```
 
