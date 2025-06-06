@@ -50,8 +50,8 @@ Here is the statistics of Vul4C.
 
 |     Tool    |    Venue    | Repository                                   |
 | :---------: | :---------: | :------------------------------------------- |
-|  VulRepair  |  FSE'22     | <https://github.com/awsm-research/VulRepair> |
-|   VRepair   |  TSE'22     | <https://github.com/ASSERT-KTH/VRepair>      |
+|  VulRepair  |  ESEC/FSE'22| <https://github.com/awsm-research/VulRepair> |
+|   VRepair   |  TSE'23     | <https://github.com/ASSERT-KTH/VRepair>      |
 |     VQM     |  TOSEM'24   | <https://github.com/awsm-research/VQM>       |
 |  VulMaster  |  ICSE'24    | <https://github.com/soarsmu/VulMaster_>      |
 | ExtractFix  |  TOSEM'20   | <https://extractfix.github.io/>              |
@@ -66,7 +66,7 @@ Here is the statistics of Vul4C.
 |     Tool    |    Venue    | Repository                                   |
 | :---------: | :---------: | :------------------------------------------- |
 |   CquenceR  |  TSE'21     | <https://github.com/epicosy/CquenceR>        |
-|   NTR       |  ICSE'23    | <https://sites.google.com/view/neuraltemplaterepair>|
+|   NTR       |  ICSE'25    | <https://sites.google.com/view/neuraltemplaterepair>|
 | ThinkRepair |  ISSTA'24   | <https://github.com/vinci-grape/ThinkRepair> |
 |   SRepair   |  Arxiv'24   | <https://github.com/GhabiX/SRepair>          |
 
