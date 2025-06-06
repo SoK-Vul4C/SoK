@@ -9,12 +9,9 @@ from tool.vulrepair import VulRepair
 from tool.vulmaster import VulMaster
 from tool.vqm import VQM
 from tool.validate import Validate
-from tool.saver import Saver
-from tool.footpatch import FootPatch
-from tool.intpti import IntPTI
 from tool.data import Data
 from tool.test import Test
-from tool.crashrepair import CrashRepair
+
 
 from logger import *
 import subprocess
@@ -93,7 +90,7 @@ def main():
     init_logger(result_dir)
 
     if not os.path.exists(cve_dir):
-        logger.info("cve config dir dont exist, please check your software and cveid")
+        logger.info("{}: cve config dir dont exist, please check your software and cveid".format(cve_dir))
         sys.exit(1)
 
     cve_runtime_dir=os.path.join(os.path.join(os.path.join(vul4c_runtime_dir,tool),software),cveid)
@@ -125,7 +122,7 @@ def main():
         tool_docker.save_result()
         cp_from_container(container_id,"/vul4c_result",result_dir)
 
-    elif tool in ["ExtractFix","Senx","FootPatch"]:
+    elif tool in ["ExtractFix","Senx"]:
         repair_name="vul4c_"+tool.lower()+"_"+"repair"+cveid.lower()+"_"+stamp
         validate_name="vul4c_"+tool.lower()+"_"+"validate"+"_"+cveid.lower()+"_"+stamp
 
@@ -133,8 +130,6 @@ def main():
             repair_container=ExtractFix(cve_runtime_dir, container_dir, container_dir, repair_name)
         elif tool=="Senx":
             repair_container=Senx(cve_runtime_dir, container_dir, container_dir, repair_name)
-        elif tool=="FootPatch":
-            repair_container=FootPatch(cve_runtime_dir, container_dir, container_dir, repair_name)
         repair_container_id=repair_container.container.id
 
         # temp_dir="/tmp/"+repair_name        
@@ -187,29 +182,7 @@ def main():
 
         validate_container.run()
         cp_from_container(validate_id,"/vul4c_result",result_dir)
-    
-    elif tool in ["Saver","IntPTI"]:
-        container_name="vul4c_"+tool.lower()+"_"+cveid.lower()+"_"+stamp
-        if tool=="Saver":
-            tool_docker=Saver(cve_runtime_dir, container_dir, container_dir, container_name)
-        if tool=="IntPTI":
-            tool_docker=IntPTI(cve_runtime_dir, container_dir, container_dir, container_name)
-        container_id=tool_docker.container.id
-        # temp_dir="/tmp/"+container_name
-        # cp_to_container(container_id,cve_runtime_dir,f"/{cveid}")
-        tool_docker.repair()
-        tool_docker.save_result()
 
-        cp_from_container(container_id,"/vul4c_result",result_dir)
-
-    elif tool in ["CrashRepair"]:
-        container_name="vul4c_"+tool.lower()+"_"+cveid.lower()+"_"+stamp
-        tool_docker=CrashRepair(cve_runtime_dir, container_dir, software, cveid, container_name)
-        container_id=tool_docker.container.id
-        # cp_to_container(container_id,cve_runtime_dir,f"/{cveid}")
-        tool_docker.repair()
-        tool_docker.save_result()
-        cp_from_container(container_id,"/vul4c_result",result_dir)
 
     else:
         logger.error("tool dont exist, please check your tool name")

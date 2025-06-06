@@ -112,7 +112,7 @@ Please ensure that you have properly installed docker and Docker SDK for Python 
 Following is a startup command for vul4c you can invoke it on selected repair tool and benchmark.
 
 ```
-python3 Framework/vul4c.py --tool "Vulnfix" --software "libxml2" --CVEID "CVE-2017-5969" 
+python3 Framework/vul4c.py --tool "VulnFix" --software "jasper" --CVEID "CVE-2016-10248" 
 ```
 
 You can find the results in the folder `vul4c-result`,and the folder where the results will be stored will be named ` $tool_$CVEID_$timestamp`
