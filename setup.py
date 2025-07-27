@@ -4,6 +4,9 @@ import shutil
 from setuptools import setup
 from setuptools.command.install import install
 
+import configparser
+from pathlib import Path
+
 
 class Vul4CConfigure(install):
     user_options = install.user_options + [
@@ -30,6 +33,22 @@ class Vul4CConfigure(install):
 
         install.run(self)
 
+setup_dir = Path(__file__).parent.resolve()
+vul4c_ini_path = setup_dir / "Vul4C_Src/vul4c.ini"
+
+if not vul4c_ini_path.exists():
+    vul4c_ini_path.touch()
+
+config = configparser.ConfigParser()
+config.read(vul4c_ini_path)
+
+if "VUL4C" not in config:
+    config["VUL4C"] = {}
+
+config["VUL4C"]["VUL4C_PATH"] = str(setup_dir)
+
+with open(vul4c_ini_path, "w") as configfile:
+    config.write(configfile)
 
 setup(
     name='vul4c',
