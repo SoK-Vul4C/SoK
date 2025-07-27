@@ -11,7 +11,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffsplit ../exploit"
+            "./tools/tiffsplit ../VUL4C/exploit"
         ],
         "nvd_info":"Stack-based buffer overflow in the _TIFFVGetField function in tif_dir.c in LibTIFF 4.0.0alpha4, 4.0.0alpha5, 4.0.0alpha6, 4.0.0beta7, 4.0.0, 4.0.1, 4.0.2, 4.0.3, 4.0.4, 4.0.4beta, 4.0.5, 4.0.6, 4.0.7 and 4.0.8 allows remote attackers to cause a denial of service (crash) via a crafted TIFF file.",
         "cve_id":"CVE-2016-10095",
@@ -32,7 +32,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffcp -i ../exploit /tmp/foo"
+            "./tools/tiffcp -i ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"LibTIFF 4.0.7 has a signed integer overflow, which might allow remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a crafted image.",
         "cve_id":"CVE-2017-7602",
@@ -53,7 +53,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffinfo ../exploit"
+            "./tools/tiffinfo ../VUL4C/exploit"
         ],
         "nvd_info":"Integer overflow in the TIFFFetchData function in tif_dirread.c for libtiff before 3.8.1 allows context-dependent attackers to cause a denial of service and possibly execute arbitrary code via a crafted TIFF image.",
         "cve_id":"CVE-2006-2025",
@@ -75,7 +75,7 @@
             "cp tools/tiffcp ../"
         ],
         "test_command":[
-            "./tools/tiffcp -i ../exploit /tmp/foo"
+            "./tools/tiffcp -i ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"The JPEGSetupEncode function in tiff_jpeg.c in LibTIFF 4.0.7 allows remote attackers to cause a denial of service (divide-by-zero error and application crash) via a crafted image.",
         "cve_id":"CVE-2017-7595",
@@ -96,7 +96,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffcp -i ../exploit /tmp/foo"
+            "./tools/tiffcp -i ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"tools/tiffcp.c in LibTIFF 4.0.7 allows remote attackers to cause a denial of service (integer underflow and heap-based buffer under-read) or possibly have unspecified other impact via a crafted TIFF image, related to \"READ of size 78490\" and libtiff/tif_unix.c:115:23.",
         "cve_id":"CVE-2016-10268",
@@ -117,7 +117,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffcp -p separate ../exploit /tmp/foo"
+            "./tools/tiffcp -p separate ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"LibTIFF version 4.0.7 is vulnerable to a heap buffer overflow in the tools/tiffcp resulting in DoS or code execution via a crafted BitsPerSample value.",
         "cve_id":"CVE-2017-5225",
@@ -138,7 +138,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffmedian ../exploit /tmp/foo"
+            "./tools/tiffmedian ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"LibTIFF 4.0.7 allows remote attackers to cause a denial of service (divide-by-zero error and application crash) via a crafted TIFF image, related to libtiff/tif_ojpeg.c:816:8.",
         "cve_id":"CVE-2016-10267",
@@ -159,7 +159,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffcp -i ../exploit /tmp/foo"
+            "./tools/tiffcp -i ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"Integer overflow in tools/tiffcp.c in LibTIFF 4.0.7, 3.9.3, 3.9.4, 3.9.5, 3.9.6, 3.9.7, 4.0.0alpha4, 4.0.0alpha5, 4.0.0alpha6, 4.0.0beta7, 4.0.0, 4.0.1, 4.0.2, 4.0.3, 4.0.4, 4.0.4beta, 4.0.5 and 4.0.6 allows remote attackers to have unspecified impact via a crafted image, which triggers a heap-based buffer overflow.",
         "cve_id":"CVE-2016-10093",
@@ -180,7 +180,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffcrop -i ../exploit /tmp/foo"
+            "./tools/tiffcrop -i ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"LibTIFF 4.0.7 allows remote attackers to cause a denial of service (heap-based buffer overflow) or possibly have unspecified other impact via a crafted TIFF image, related to \"WRITE of size 2048\" and libtiff/tif_next.c:64:9.",
         "cve_id":"CVE-2016-10272",
@@ -201,7 +201,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffcp -i ../exploit /tmp/foo"
+            "./tools/tiffcp -i ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"LibTIFF 4.0.0alpha4, 4.0.0alpha5, 4.0.0alpha6, 4.0.0beta7, 4.0.0, 4.0.1, 4.0.2, 4.0.3, 4.0.4, 4.0.4beta, 4.0.5, 4.0.6 and 4.0.7 allows remote attackers to cause a denial of service (heap-based buffer over-read) or possibly have unspecified other impact via a crafted TIFF image, related to \"READ of size 512\" and libtiff/tif_unix.c:340:2.",
         "cve_id":"CVE-2016-10269",
@@ -223,7 +223,7 @@
             "cp tools/tiffcp ../"
         ],
         "test_command":[
-            "./tools/tiffcp -i ../exploit /tmp/foo"
+            "./tools/tiffcp -i ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"LibTIFF 4.0.7 has a \"shift exponent too large for 64-bit type long\" undefined behavior issue, which might allow remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a crafted image.",
         "cve_id":"CVE-2017-7601",
@@ -245,7 +245,7 @@
             "cp tools/tiffcp ../"
         ],
         "test_command":[
-            "./tools/tiffcp -i ../exploit /tmp/foo"
+            "./tools/tiffcp -i ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"LibTIFF 4.0.7 has an \"outside the range of representable values of type unsigned char\" undefined behavior issue, which might allow remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a crafted image.",
         "cve_id":"CVE-2017-7600",
@@ -267,7 +267,7 @@
             "cp tools/tiffcrop ../"
         ],
         "test_command":[
-            "./tools/tiffcrop ../exploit /tmp/foo"
+            "./tools/tiffcrop ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"The DumpModeDecode function in libtiff 4.0.6 and earlier allows attackers to cause a denial of service (invalid read and crash) via a crafted tiff image.",
         "cve_id":"CVE-2016-5321",
@@ -288,7 +288,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffcrop -i ../exploit /tmp/foo"
+            "./tools/tiffcrop -i ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"tools/tiffcrop.c in LibTIFF 4.0.7 allows remote attackers to cause a denial of service (heap-based buffer over-read and buffer overflow) or possibly have unspecified other impact via a crafted TIFF image, related to \"READ of size 1\" and libtiff/tif_fax3.c:413:13.",
         "cve_id":"CVE-2016-10271",
@@ -309,7 +309,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffcp -i ../exploit /tmp/foo"
+            "./tools/tiffcp -i ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"LibTIFF 4.0.7 allows remote attackers to cause a denial of service (heap-based buffer over-read) or possibly have unspecified other impact via a crafted TIFF image, related to \"READ of size 8\" and libtiff/tif_read.c:523:22.",
         "cve_id":"CVE-2016-10270",
@@ -330,7 +330,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffinfo ../exploit"
+            "./tools/tiffinfo ../VUL4C/exploit"
         ],
         "nvd_info":"The TIFFExtractData macro in LibTIFF before 3.9.4 does not properly handle unknown tag types in TIFF directory entries, which allows remote attackers to cause a denial of service (out-of-bounds read and application crash) via a crafted TIFF file.",
         "cve_id":"CVE-2010-2481",
@@ -352,7 +352,7 @@
             "cp tools/tiffcrop ../"
         ],
         "test_command":[
-            "./tools/tiffcrop ../exploit /tmp/foo"
+            "./tools/tiffcrop ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"Integer overflow in the writeBufferToSeparateStrips function in tiffcrop.c in LibTIFF before 4.0.7 allows remote attackers to cause a denial of service (out-of-bounds read) via a crafted tif file.",
         "cve_id":"CVE-2016-9532",
@@ -374,7 +374,7 @@
             "cp tools/tiff2pdf ../"
         ],
         "test_command":[
-            "./tools/tiff2pdf ../exploit -o foo"
+            "./tools/tiff2pdf ../VUL4C/exploit -o foo"
         ],
         "nvd_info":"Off-by-one error in the t2p_readwrite_pdf_image_tile function in tools/tiff2pdf.c in LibTIFF 4.0.7 allows remote attackers to have unspecified impact via a crafted image.",
         "cve_id":"CVE-2016-10094",
@@ -395,7 +395,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/gif2tiff ../exploit poc.tif"
+            "./tools/gif2tiff ../VUL4C/exploit poc.tif"
         ],
         "nvd_info":"Heap-based buffer overflow in the readgifimage function in the gif2tiff tool in libtiff 4.0.3 and earlier allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a crafted height and width values in a GIF image.",
         "cve_id":"CVE-2013-4243",
@@ -416,7 +416,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffsplit ../exploit"
+            "./tools/tiffsplit ../VUL4C/exploit"
         ],
         "nvd_info":"tiffsplit in libtiff 4.0.6 allows remote attackers to cause a denial of service (out-of-bounds read) via a crafted file, related to changing td_nstrips in TIFF_STRIPCHOP mode.",
         "cve_id":"CVE-2016-9273",
@@ -437,7 +437,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffcrop -i ../exploit /tmp/foo"
+            "./tools/tiffcrop -i ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"Heap-based buffer overflow in the readContigStripsIntoBuffer function in tif_unix.c in LibTIFF 4.0.7, 3.9.3, 3.9.4, 3.9.5, 3.9.6, 3.9.7, 4.0.0alpha4, 4.0.0alpha5, 4.0.0alpha6, 4.0.0beta7, 4.0.0, 4.0.1, 4.0.2, 4.0.3, 4.0.4, 4.0.4beta, 4.0.5 and 4.0.6 allows remote attackers to have unspecified impact via a crafted image.",
         "cve_id":"CVE-2016-10092",
@@ -459,7 +459,7 @@
             "cp tools/tiffcp ../"
         ],
         "test_command":[
-            "./tools/tiffcp -i ../exploit /tmp/foo"
+            "./tools/tiffcp -i ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"LibTIFF 4.0.7 has an \"outside the range of representable values of type short\" undefined behavior issue, which might allow remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a crafted image.",
         "cve_id":"CVE-2017-7599",
@@ -480,7 +480,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
-            "./tools/tiffcp -i ../exploit /tmp/foo"
+            "./tools/tiffcp -i ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"LibTIFF 4.0.7 allows remote attackers to cause a denial of service (divide-by-zero error and application crash) via a crafted TIFF image, related to libtiff/tif_read.c:351:22.",
         "cve_id":"CVE-2016-10266",
@@ -501,7 +501,7 @@
             "make CFLAGS=\"-fsanitize=float-divide-by-zero -static -ggdb\" CXXFLAGS=\"-fsanitize=float-divide-by-zero -static -ggdb\" LDFLAGS=\"-fsanitize=float-divide-by-zero\" -j10"
         ],
         "test_command":[
-            "./tools/tiffcp -i ../exploit /tmp/foo"
+            "./tools/tiffcp -i ../VUL4C/exploit /tmp/foo"
         ],
         "nvd_info":"tif_dirread.c in LibTIFF 4.0.7 might allow remote attackers to cause a denial of service (divide-by-zero error and application crash) via a crafted image.",
         "cve_id":"CVE-2017-7598",
@@ -523,7 +523,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./csslint/csslint-0.6 ../exploit"
+            "./csslint/csslint-0.6 ../VUL4C/exploit"
         ],
         "nvd_info":"The cr_tknzr_parse_rgb function in cr-tknzr.c in libcroco 0.6.11 and 0.6.12 has an \"outside the range of representable values of type long\" undefined behavior issue, which might allow remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a crafted CSS file. NOTE: third-party analysis reports \"This is not a security issue in my view. The conversion surely is truncating the double into a long value, but there is no impact as the value is one of the RGB components.",
         "cve_id":"CVE-2017-7961",
@@ -545,7 +545,7 @@
             "cp ./xmllint ../"
         ],
         "test_command":[
-            "./xmllint --recover ../exploit"
+            "./xmllint --recover ../VUL4C/exploit"
         ],
         "nvd_info":"libxml2 2.9.4, when used in recover mode, allows remote attackers to cause a denial of service (NULL pointer dereference) via a crafted XML document.  NOTE: The maintainer states \"I would disagree of a CVE with the Recover parsing option which should only be used for manual recovery at least for XML parser.",
         "cve_id":"CVE-2017-5969",
@@ -567,7 +567,7 @@
             "cp ./xmllint ../"
         ],
         "test_command":[
-            "./xmllint ../exploit"
+            "./xmllint ../VUL4C/exploit"
         ],
         "nvd_info":"Heap-based buffer underflow in the xmlParseAttValueComplex function in parser.c in libxml2 2.9.0 and earlier, as used in Google Chrome before 23.0.1271.91 and other products, allows remote attackers to cause a denial of service or possibly execute arbitrary code via crafted entities in an XML document.",
         "cve_id":"CVE-2012-5134",
@@ -589,7 +589,7 @@
             "cp ./xmllint ../"
         ],
         "test_command":[
-            "./xmllint ../exploit"
+            "./xmllint ../VUL4C/exploit"
         ],
         "nvd_info":"The xmlPArserPrintFileContextInternal function in libxml2 before 2.9.4, as used in Apple iOS before 9.3.2, OS X before 10.11.5, tvOS before 9.2.1, and watchOS before 2.2.1, allows remote attackers to cause a denial of service (heap-based buffer over-read) via a crafted XML document.",
         "cve_id":"CVE-2016-1838",
@@ -611,7 +611,7 @@
             "cp ./xmllint ../"
         ],
         "test_command":[
-            "./xmllint -html ../exploit"
+            "./xmllint -html ../VUL4C/exploit"
         ],
         "nvd_info":"The xmlDictAddString function in libxml2 before 2.9.4, as used in Apple iOS before 9.3.2, OS X before 10.11.5, tvOS before 9.2.1, and watchOS before 2.2.1, allows remote attackers to cause a denial of service (heap-based buffer over-read) via a crafted XML document.",
         "cve_id":"CVE-2016-1839",
@@ -632,7 +632,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./dwarfdump/dwarfdump ../exploit"
+            "./dwarfdump/dwarfdump ../VUL4C/exploit"
         ],
         "nvd_info":"Heap-based buffer overflow in the _dwarf_skim_forms function in libdwarf/dwarf_macro5.c in Libdwarf before 20161124 allows remote attackers to cause a denial of service (out-of-bounds read).",
         "cve_id":"CVE-2016-9275",
@@ -653,7 +653,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./dwarfdump/dwarfdump ../exploit"
+            "./dwarfdump/dwarfdump ../VUL4C/exploit"
         ],
         "nvd_info":"The dwarf_get_aranges_list function in dwarf_arrange.c in Libdwarf before 20161124 allows remote attackers to cause a denial of service (out-of-bounds read).",
         "cve_id":"CVE-2016-9276",
@@ -674,7 +674,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./dwarfdump/dwarfdump ../exploit"
+            "./dwarfdump/dwarfdump ../VUL4C/exploit"
         ],
         "nvd_info":"(1) libdwarf/dwarf_leb.c and (2) dwarfdump/print_frames.c in libdwarf before 20161124 allow remote attackers to have unspecified impact via a crafted bit pattern in a signed leb number, aka a \"negation overflow.\"",
         "cve_id":"CVE-2016-9558",
@@ -698,7 +698,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./mp42aac ../exploit out.aac"
+            "./mp42aac ../VUL4C/exploit out.aac"
         ],
         "nvd_info":"AP4_VisualSampleEntry::ReadFields in Core/Ap4SampleEntry.cpp in Bento4 1.5.0-617 uses incorrect character data types, which causes a stack-based buffer underflow and out-of-bounds write, leading to denial of service (application crash) or possibly unspecified other impact.",
         "cve_id":"CVE-2017-14639",
@@ -723,7 +723,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./mp42aac ../exploit out.aac"
+            "./mp42aac ../VUL4C/exploit out.aac"
         ],
         "nvd_info":"A NULL pointer dereference was discovered in the AP4_HdlrAtom class in Bento4 version 1.5.0-617. The vulnerability causes a segmentation fault and application crash in AP4_StdcFileByteStream::ReadPartial in System/StdC/Ap4StdCFileByteStream.cpp, which leads to remote denial of service.",
         "cve_id":"CVE-2017-14642",
@@ -747,7 +747,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./mp42aac ../exploit out.aac"
+            "./mp42aac ../VUL4C/exploit out.aac"
         ],
         "nvd_info":"AP4_AtomFactory::CreateAtomFromStream in Core/Ap4AtomFactory.cpp in Bento4 version 1.5.0-617 has missing NULL checks, leading to a NULL pointer dereference, segmentation fault, and application crash in AP4_Atom::SetType in Core/Ap4Atom.h.",
         "cve_id":"CVE-2017-14638",
@@ -771,7 +771,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./mp42aac ../exploit out.aac"
+            "./mp42aac ../VUL4C/exploit out.aac"
         ],
         "nvd_info":"The AP4_HdlrAtom class in Core/Ap4HdlrAtom.cpp in Bento4 version 1.5.0-617 uses an incorrect character data type, leading to a heap-based buffer over-read and application crash in AP4_BytesToUInt32BE in Core/Ap4Utils.h.",
         "cve_id":"CVE-2017-14643",
@@ -795,7 +795,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./mp42aac ../exploit out.aac"
+            "./mp42aac ../VUL4C/exploit out.aac"
         ],
         "nvd_info":"The AP4_AvccAtom and AP4_HvccAtom classes in Bento4 version 1.5.0-617 do not properly validate data sizes, leading to a heap-based buffer over-read and application crash in AP4_DataBuffer::SetData in Core/Ap4DataBuffer.cpp.",
         "cve_id":"CVE-2017-14646",
@@ -819,7 +819,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./mp42aac ../exploit out.aac"
+            "./mp42aac ../VUL4C/exploit out.aac"
         ],
         "nvd_info":"A NULL pointer dereference was discovered in AP4_AtomSampleTable::GetSample in Core/Ap4AtomSampleTable.cpp in Bento4 version 1.5.0-617. The vulnerability causes a segmentation fault and application crash, which leads to remote denial of service.",
         "cve_id":"CVE-2017-14640",
@@ -843,7 +843,7 @@
             "make CFLAGS=\"-static -fsanitize=address -g\" CXXFLAGS=\"-static -fsanitize=address -g\" -j10"
         ],
         "test_command":[
-            "./$(uname -s)_$(uname -r)_$(uname -m).d/bins/unzzipcat-mem ../exploit"
+            "./$(uname -s)_$(uname -r)_$(uname -m).d/bins/unzzipcat-mem ../VUL4C/exploit"
         ],
         "nvd_info":"Heap-based buffer overflow in the zzip_mem_entry_extra_block function in memdisk.c in zziplib 0.13.62, 0.13.61, 0.13.60, 0.13.59, 0.13.58, 0.13.57, 0.13.56 allows remote attackers to cause a denial of service (crash) via a crafted ZIP file.",
         "cve_id":"CVE-2017-5976",
@@ -867,7 +867,7 @@
             "make CFLAGS=\"-static -fsanitize=address -g\" CXXFLAGS=\"-static -fsanitize=address -g\" -j10"
         ],
         "test_command":[
-            "./$(uname -s)_$(uname -r)_$(uname -m).d/bins/unzzipcat-mem ../exploit"
+            "./$(uname -s)_$(uname -r)_$(uname -m).d/bins/unzzipcat-mem ../VUL4C/exploit"
         ],
         "nvd_info":"Heap-based buffer overflow in the __zzip_get64 function in fetch.c in zziplib 0.13.62, 0.13.61, 0.13.60, 0.13.59, 0.13.58, 0.13.57, 0.13.56 allows remote attackers to cause a denial of service (crash) via a crafted ZIP file.",
         "cve_id":"CVE-2017-5975",
@@ -891,7 +891,7 @@
             "make CFLAGS=\"-static -fsanitize=address -g\" CXXFLAGS=\"-static -fsanitize=address -g\" -j10"
         ],
         "test_command":[
-            "./$(uname -s)_$(uname -r)_$(uname -m).d/bins/unzzipcat-mem ../exploit"
+            "./$(uname -s)_$(uname -r)_$(uname -m).d/bins/unzzipcat-mem ../VUL4C/exploit"
         ],
         "nvd_info":"Heap-based buffer overflow in the __zzip_get32 function in fetch.c in zziplib 0.13.62, 0.13.61, 0.13.60, 0.13.59, 0.13.58, 0.13.57, 0.13.56 allows remote attackers to cause a denial of service (crash) via a crafted ZIP file.",
         "cve_id":"CVE-2017-5974",
@@ -911,7 +911,7 @@
             "make CFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./jhead ../exploit"
+            "./jhead ../VUL4C/exploit"
         ],
         "nvd_info":"Buffer Overflow vulnerability in jpgfile.c in Matthias-Wandel jhead version 3.04, allows local attackers to execute arbitrary code and cause a denial of service (DoS).",
         "cve_id":"CVE-2020-28840",
@@ -931,7 +931,7 @@
             "make CFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./jhead ../exploit"
+            "./jhead ../VUL4C/exploit"
         ],
         "nvd_info":"JHEAD is a simple command line tool for displaying and some manipulation of EXIF header data embedded in Jpeg images from digital cameras. In affected versions there is a heap-buffer-overflow on jhead-3.04/jpgfile.c:285 ReadJpegSections. Crafted jpeg images can be provided to the user resulting in a program crash or potentially incorrect exif information retrieval. Users are advised to upgrade. There is no known workaround for this issue.",
         "cve_id":"CVE-2020-26208",
@@ -957,7 +957,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./src/ziptool ../exploit cat index"
+            "./src/ziptool ../VUL4C/exploit cat index"
         ],
         "nvd_info":"The _zip_read_eocd64 function in zip_open.c in libzip before 1.3.0 mishandles EOCD records, which allows remote attackers to cause a denial of service (memory allocation failure in _zip_cdir_grow in zip_dirent.c) via a crafted ZIP archive.",
         "cve_id":"CVE-2017-14107",
@@ -983,7 +983,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./src/ziptool ../exploit cat index"
+            "./src/ziptool ../VUL4C/exploit cat index"
         ],
         "nvd_info":"Double free vulnerability in the _zip_dirent_read function in zip_dirent.c in libzip allows attackers to have unspecified impact via unknown vectors.",
         "cve_id":"CVE-2017-12858",
@@ -1003,7 +1003,7 @@
             "make CFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./gif2tga ../exploit"
+            "./gif2tga ../VUL4C/exploit"
         ],
         "nvd_info":"ngiflib 0.4 has a heap-based buffer overflow in WritePixels() in ngiflib.c when called from DecodeGifImg, because deinterlacing for small pictures is mishandled.",
         "cve_id":"CVE-2019-16347",
@@ -1023,7 +1023,7 @@
             "make CFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./SDLaffgif ../exploit"
+            "./SDLaffgif ../VUL4C/exploit"
         ],
         "nvd_info":"The DecodeGifImg function in ngiflib.c in MiniUPnP ngiflib 0.4 does not consider the bounds of the pixels data structure, which allows remote attackers to cause a denial of service (WritePixels heap-based buffer overflow and application crash) or possibly have unspecified other impact via a crafted GIF file, a different vulnerability than CVE-2018-10677.",
         "cve_id":"CVE-2018-10717",
@@ -1043,7 +1043,7 @@
             "make CFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./gif2tga ../exploit"
+            "./gif2tga ../VUL4C/exploit"
         ],
         "nvd_info":"The DecodeGifImg function in ngiflib.c in MiniUPnP ngiflib 0.4 lacks certain checks against width and height, which allows remote attackers to cause a denial of service (WritePixels heap-based buffer overflow and application crash) or possibly have unspecified other impact via a crafted GIF file.",
         "cve_id":"CVE-2018-10677",
@@ -1063,7 +1063,7 @@
             "make CFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./gif2tga ../exploit"
+            "./gif2tga ../VUL4C/exploit"
         ],
         "nvd_info":"ngiflib 0.4 has a heap-based buffer overflow in WritePixel() in ngiflib.c when called from DecodeGifImg, because deinterlacing for small pictures is mishandled.",
         "cve_id":"CVE-2019-16346",
@@ -1085,7 +1085,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"The jas_seq2d_create function in jas_seq.c in JasPer before 1.900.14 allows remote attackers to cause a denial of service (assertion failure) via a crafted image file.",
         "cve_id":"CVE-2016-9390",
@@ -1109,7 +1109,7 @@
             "make CFLAGS=\"-static -g -fsanitize=address -fsanitize=undefined\" CXXFLAGS=\"-static -g -fsanitize=address -fsanitize=undefined\" LDFLAGS=\"-fsanitize=address -fsanitize=undefined\" -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"The jpc_floorlog2 function in jpc_math.c in JasPer before 1.900.17 allows remote attackers to cause a denial of service (assertion failure) via unspecified vectors.",
         "cve_id":"CVE-2016-9398",
@@ -1131,7 +1131,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"The jpc_bitstream_getbits function in jpc_bs.c in JasPer before 2.0.10 allows remote attackers to cause a denial of service (assertion failure) via a very large integer.",
         "cve_id":"CVE-2016-9391",
@@ -1155,7 +1155,7 @@
             "make CFLAGS=\"-static -g -fsanitize=address -fsanitize=undefined\" CXXFLAGS=\"-static -g -fsanitize=address -fsanitize=undefined\" LDFLAGS=\"-fsanitize=address -fsanitize=undefined\" -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"Integer overflow in jas_image.c in JasPer before 1.900.25 allows remote attackers to cause a denial of service (application crash) via a crafted file.",
         "cve_id":"CVE-2016-9557",
@@ -1177,7 +1177,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"The jp2_colr_destroy function in libjasper/jp2/jp2_cod.c in JasPer before 1.900.10 allows remote attackers to cause a denial of service (NULL pointer dereference).",
         "cve_id":"CVE-2016-8887",
@@ -1199,7 +1199,7 @@
             "make CFLAGS=\"-g -fsanitize=address\" CXXFLAGS=\"-g -fsanitize=address\" LDFLAGS=\"-fsanitize=address\"  -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"The jpc_tsfb_synthesize function in jpc_tsfb.c in JasPer before 1.900.9 allows remote attackers to cause a denial of service (NULL pointer dereference) via vectors involving an empty sequence.",
         "cve_id":"CVE-2016-10248",
@@ -1221,7 +1221,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"The jas_seq2d_create function in jas_seq.c in JasPer before 1.900.17 allows remote attackers to cause a denial of service (assertion failure) via a crafted file.",
         "cve_id":"CVE-2016-9394",
@@ -1243,7 +1243,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"The bmp_getdata function in libjasper/bmp/bmp_dec.c in JasPer 1.900.5 allows remote attackers to cause a denial of service (NULL pointer dereference) by calling the imginfo command with a crafted BMP image. NOTE: this vulnerability exists because of an incomplete fix for CVE-2016-8690.",
         "cve_id":"CVE-2016-8884",
@@ -1265,7 +1265,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"The jpc_irct and jpc_iict functions in jpc_mct.c in JasPer before 1.900.14 allow remote attackers to cause a denial of service (assertion failure).",
         "cve_id":"CVE-2016-9389",
@@ -1289,7 +1289,7 @@
             "make CFLAGS=\"-static -fsanitize=address -g\" CXXFLAGS=\"-static -fsanitize=address -g\" -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"The jpc_dec_process_siz function in libjasper/jpc/jpc_dec.c in JasPer before 1.900.4 allows remote attackers to cause a denial of service (divide-by-zero error and application crash) via a crafted XRsiz value in a BMP image to the imginfo command.",
         "cve_id":"CVE-2016-8691",
@@ -1311,7 +1311,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"The JPC_NOMINALGAIN function in jpc/jpc_t1cod.c in JasPer through 2.0.12 allows remote attackers to cause a denial of service (JPC_COX_RFT assertion failure) via unspecified vectors.",
         "cve_id":"CVE-2016-9396",
@@ -1333,7 +1333,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"Integer overflow in the jpc_pi_nextcprl function in jpc_t2cod.c in JasPer before 1.900.20 allows remote attackers to have unspecified impact via a crafted file, which triggers use of an uninitialized value.",
         "cve_id":"CVE-2016-10251",
@@ -1355,7 +1355,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"Stack-based buffer overflow in the jpc_tsfb_getbands2 function in jpc_tsfb.c in JasPer before 1.900.30 allows remote attackers to have unspecified impact via a crafted image.",
         "cve_id":"CVE-2016-9560",
@@ -1377,7 +1377,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"The jpc_dec_process_siz function in libjasper/jpc/jpc_dec.c in JasPer before 1.900.4 allows remote attackers to cause a denial of service (divide-by-zero error and application crash) via a crafted YRsiz value in a BMP image to the imginfo command.",
         "cve_id":"CVE-2016-8692",
@@ -1399,7 +1399,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"Integer overflow in the jpc_dec_process_siz function in libjasper/jpc/jpc_dec.c in JasPer before 1.900.13 allows remote attackers to have unspecified impact via a crafted file, which triggers an assertion failure.",
         "cve_id":"CVE-2016-9387",
@@ -1421,7 +1421,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"The ras_getcmap function in ras_dec.c in JasPer before 1.900.14 allows remote attackers to cause a denial of service (assertion failure) via a crafted image file.",
         "cve_id":"CVE-2016-9388",
@@ -1445,7 +1445,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/appl/imginfo -f ../exploit"
+            "./src/appl/imginfo -f ../VUL4C/exploit"
         ],
         "nvd_info":"The jp2_cdef_destroy function in jp2_cod.c in JasPer before 2.0.13 allows remote attackers to cause a denial of service (NULL pointer dereference) via a crafted image.",
         "cve_id":"CVE-2017-6850",
@@ -1467,7 +1467,7 @@
 
         ],
         "test_command":[
-            "./utilities/gm convert ../exploit null"
+            "./utilities/gm convert ../VUL4C/exploit null"
         ],
         "nvd_info":"ReadOneJNGImage in coders/png.c in GraphicsMagick version 1.3.26 does not properly validate JNG data, leading to a denial of service (assertion failure in magick/pixel_cache.c, and application crash).",
         "cve_id":"CVE-2017-14649",
@@ -1487,7 +1487,7 @@
 
         ],
         "test_command":[
-            "./utilities/gm convert -negate -clip ../exploit out"
+            "./utilities/gm convert -negate -clip ../VUL4C/exploit out"
         ],
         "nvd_info":"The ReadSUNImage function in coders/sun.c in GraphicsMagick 1.3.26 has a colormap heap-based buffer over-read.",
         "cve_id":"CVE-2017-12937",
@@ -1509,7 +1509,7 @@
 
         ],
         "test_command":[
-            "./utilities/gm identify ../exploit"
+            "./utilities/gm identify ../VUL4C/exploit"
         ],
         "nvd_info":"The ReadJNGImage and ReadOneJNGImage functions in coders/png.c in GraphicsMagick 1.3.26 do not properly manage image pointers after certain error conditions, which allows remote attackers to conduct use-after-free attacks via a crafted file, related to a ReadMNGImage out-of-order CloseBlob call. NOTE: this vulnerability exists because of an incomplete fix for CVE-2017-11403.",
         "cve_id":"CVE-2017-14103",
@@ -1531,7 +1531,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./imagew ../exploit /tmp/out -outfmt bmp"
+            "./imagew ../VUL4C/exploit /tmp/out -outfmt bmp"
         ],
         "nvd_info":"The iw_get_ui16be function in imagew-util.c:422:24 in libimageworsener.a in ImageWorsener 1.3.1 allows remote attackers to cause a denial of service (heap-based buffer over-read) via a crafted image, related to imagew-jpeg.c.",
         "cve_id":"CVE-2017-9207",
@@ -1553,7 +1553,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./imagew ../exploit /tmp/out -outfmt bmp"
+            "./imagew ../VUL4C/exploit /tmp/out -outfmt bmp"
         ],
         "nvd_info":"The iw_process_cols_to_intermediate function in imagew-main.c in libimageworsener.a in ImageWorsener before 1.3.1 allows remote attackers to cause a denial of service (heap-based buffer overflow and application crash) or possibly have unspecified other impact via a crafted image.",
         "cve_id":"CVE-2017-8325",
@@ -1575,7 +1575,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./imagew ../exploit /tmp/out -outfmt bmp"
+            "./imagew ../VUL4C/exploit /tmp/out -outfmt bmp"
         ],
         "nvd_info":"The iw_get_ui16be function in imagew-util.c:422:24 in libimageworsener.a in ImageWorsener 1.3.1 allows remote attackers to cause a denial of service (invalid read and SEGV) via a crafted image, related to imagew-jpeg.c.",
         "cve_id":"CVE-2017-9205",
@@ -1597,7 +1597,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./imagew ../exploit /tmp/out -outfmt bmp"
+            "./imagew ../VUL4C/exploit /tmp/out -outfmt bmp"
         ],
         "nvd_info":"The iwgif_read_image function in imagew-gif.c in libimageworsener.a in ImageWorsener 1.3.0 allows remote attackers to cause a denial of service (divide-by-zero error and application crash) via a crafted file.",
         "cve_id":"CVE-2017-7962",
@@ -1619,7 +1619,7 @@
             "make CFLAGS=\"-static -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=undefined -g\" LDFLAGS=\"-fsanitize=undefined\" -j10"
         ],
         "test_command":[
-            "./imagew ../exploit /tmp/out -outfmt bmp"
+            "./imagew ../VUL4C/exploit /tmp/out -outfmt bmp"
         ],
         "nvd_info":"imagew-main.c:960:12 in libimageworsener.a in ImageWorsener 1.3.1 allows remote attackers to cause a denial of service (buffer underflow) via a crafted image, related to imagew-bmp.c.",
         "cve_id":"CVE-2017-9203",
@@ -1641,7 +1641,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./imagew ../exploit /tmp/out -outfmt bmp"
+            "./imagew ../VUL4C/exploit /tmp/out -outfmt bmp"
         ],
         "nvd_info":"The iw_get_ui16le function in imagew-util.c:405:23 in libimageworsener.a in ImageWorsener 1.3.1 allows remote attackers to cause a denial of service (invalid read and SEGV) via a crafted image, related to imagew-jpeg.c.",
         "cve_id":"CVE-2017-9204",
@@ -1663,7 +1663,7 @@
             "make CFLAGS=\"-fsanitize=undefined -g\" CXXFLAGS=\"-fsanitize=undefined -g\" LDFLAGS=\"-fsanitize=undefined\" -j10"
         ],
         "test_command":[
-            "./imagew ../exploit /tmp/out -outfmt bmp"
+            "./imagew ../VUL4C/exploit /tmp/out -outfmt bmp"
         ],
         "nvd_info":"libimageworsener.a in ImageWorsener before 1.3.1 has \"left shift cannot be represented in type int\" undefined behavior issues, which might allow remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a crafted image, related to imagew-bmp.c and imagew-util.c.",
         "cve_id":"CVE-2017-8326",
@@ -1685,7 +1685,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./imagew ../exploit /tmp/out -outfmt bmp"
+            "./imagew ../VUL4C/exploit /tmp/out -outfmt bmp"
         ],
         "nvd_info":"The iw_get_ui16le function in imagew-util.c:405:23 in libimageworsener.a in ImageWorsener 1.3.1 allows remote attackers to cause a denial of service (heap-based buffer over-read) via a crafted image, related to imagew-jpeg.c.",
         "cve_id":"CVE-2017-9206",
@@ -1705,7 +1705,7 @@
             "make CFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" LFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./src/gilcc ../exploit"
+            "./src/gilcc ../VUL4C/exploit"
         ],
         "nvd_info":"Buffer overflow vulnerability in function src_parser_trans_stage_1_2_3 trgil gilcc before commit 803969389ca9c06237075a7f8eeb1a19e6651759, allows attackers to cause a denial of service.",
         "cve_id":"CVE-2020-21572",
@@ -1727,7 +1727,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/elflint -d ../exploit"
+            "./src/elflint -d ../VUL4C/exploit"
         ],
         "nvd_info":"The check_group function in elflint.c in elfutils 0.168 allows remote attackers to cause a denial of service (heap-based buffer over-read and application crash) via a crafted ELF file.",
         "cve_id":"CVE-2017-7610",
@@ -1749,7 +1749,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/readelf -a ../exploit"
+            "./src/readelf -a ../VUL4C/exploit"
         ],
         "nvd_info":"The ebl_object_note_type_name function in eblobjnotetypename.c in elfutils 0.168 allows remote attackers to cause a denial of service (heap-based buffer over-read and application crash) via a crafted ELF file.",
         "cve_id":"CVE-2017-7608",
@@ -1771,7 +1771,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/elflint -d ../exploit"
+            "./src/elflint -d ../VUL4C/exploit"
         ],
         "nvd_info":"The check_symtab_shndx function in elflint.c in elfutils 0.168 allows remote attackers to cause a denial of service (heap-based buffer over-read and application crash) via a crafted ELF file.",
         "cve_id":"CVE-2017-7611",
@@ -1793,7 +1793,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/readelf -a ../exploit"
+            "./src/readelf -a ../VUL4C/exploit"
         ],
         "nvd_info":"The handle_gnu_hash function in readelf.c in elfutils 0.168 allows remote attackers to cause a denial of service (heap-based buffer over-read and application crash) via a crafted ELF file.",
         "cve_id":"CVE-2017-7607",
@@ -1815,7 +1815,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./src/elflint -d ../exploit"
+            "./src/elflint -d ../VUL4C/exploit"
         ],
         "nvd_info":"The check_sysv_hash function in elflint.c in elfutils 0.168 allows remote attackers to cause a denial of service (heap-based buffer over-read and application crash) via a crafted ELF file.",
         "cve_id":"CVE-2017-7612",
@@ -1836,7 +1836,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./utilities/magick identify ../exploit"
+            "./utilities/magick identify ../VUL4C/exploit"
         ],
         "nvd_info":"coders/tiff.c in ImageMagick before 7.0.3.7 allows remote attackers to cause a denial of service (NULL pointer dereference and crash) via a crafted image.",
         "cve_id":"CVE-2016-9559",
@@ -1857,7 +1857,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./utilities/magick convert ../exploit null"
+            "./utilities/magick convert ../VUL4C/exploit null"
         ],
         "nvd_info":"Use-after-free vulnerability in the DestroyImage function in image.c in ImageMagick before 7.0.6-6 allows remote attackers to cause a denial of service via a crafted file.",
         "cve_id":"CVE-2017-12877",
@@ -1878,7 +1878,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./utilities/magick convert ../exploit null"
+            "./utilities/magick convert ../VUL4C/exploit null"
         ],
         "nvd_info":"Heap-based buffer overflow in enhance.c in ImageMagick before 7.0.6-6 allows remote attackers to cause a denial of service via a crafted file.",
         "cve_id":"CVE-2017-12876",
@@ -1899,7 +1899,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./utilities/magick identify ../exploit"
+            "./utilities/magick identify ../VUL4C/exploit"
         ],
         "nvd_info":"The IsPixelGray function in MagickCore/pixel-accessor.h in ImageMagick 7.0.3-8 allows remote attackers to cause a denial of service (out-of-bounds heap read) via a crafted image file.",
         "cve_id":"CVE-2016-9556",
@@ -1920,7 +1920,7 @@
             "ASAN_OPTIONS=detect_leaks=0 make CFLAGS=\"-ldl -lutil -fsanitize=shift -g\" CXXFLAGS=\"-fsanitize=shift -ldl -lutil -g\" LDFLAGS=\" -ldl -lutil -fsanitize=shift\" -j10"
         ],
         "test_command":[
-            "./binutils/readelf -a ../exploit"
+            "./binutils/readelf -a ../VUL4C/exploit"
         ],
         "nvd_info":"readelf.c in GNU Binutils 2017-04-12 has a \"shift exponent too large for type unsigned long\" issue, which might allow remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a crafted ELF file.",
         "cve_id":"CVE-2017-9043",
@@ -1941,7 +1941,7 @@
             "ASAN_OPTIONS=detect_leaks=0 make CFLAGS=\"-ldl -lutil -fsanitize=address -g\" CXXFLAGS=\"-fsanitize=address -ldl -lutil -g\" LDFLAGS=\" -ldl -lutil -fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../exploit"
+            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../VUL4C/exploit"
         ],
         "nvd_info":"read_formatted_entries in dwarf2.c in the Binary File Descriptor (BFD) library (aka libbfd), as distributed in GNU Binutils 2.29, does not properly validate the format count, which allows remote attackers to cause a denial of service (NULL pointer dereference and application crash) via a crafted ELF file, related to concat_filename.",
         "cve_id":"CVE-2017-15023",
@@ -1962,7 +1962,7 @@
             "ASAN_OPTIONS=detect_leaks=0 make CFLAGS=\"-ldl -lutil -fsanitize=address -g\" CXXFLAGS=\"-fsanitize=address -ldl -lutil -g\" LDFLAGS=\" -ldl -lutil -fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../exploit"
+            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../VUL4C/exploit"
         ],
         "nvd_info":"bfd_get_debug_link_info_1 in opncls.c in the Binary File Descriptor (BFD) library (aka libbfd), as distributed in GNU Binutils 2.29, allows remote attackers to cause a denial of service (heap-based buffer over-read and application crash) via a crafted ELF file, related to bfd_getl32.",
         "cve_id":"CVE-2017-15021",
@@ -1983,7 +1983,7 @@
             "ASAN_OPTIONS=detect_leaks=0 make CFLAGS=\"-ldl -lutil -fsanitize=address -g\" CXXFLAGS=\"-fsanitize=address -ldl -lutil -g\" LDFLAGS=\" -ldl -lutil -fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../exploit"
+            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../VUL4C/exploit"
         ],
         "nvd_info":"dwarf2.c in the Binary File Descriptor (BFD) library (aka libbfd), as distributed in GNU Binutils 2.29, mishandles NULL files in a .debug_line file table, which allows remote attackers to cause a denial of service (NULL pointer dereference and application crash) via a crafted ELF file, related to concat_filename. NOTE: this issue is caused by an incomplete fix for CVE-2017-15023.",
         "cve_id":"CVE-2017-15939",
@@ -2005,7 +2005,7 @@
             "cp binutils/readelf ../"
         ],
         "test_command":[
-            "./binutils/readelf -w ../exploit"
+            "./binutils/readelf -w ../VUL4C/exploit"
         ],
         "nvd_info":"readelf in GNU Binutils 2.28 writes to illegal addresses while processing corrupt input files containing symbol-difference relocations, leading to a heap-based buffer overflow.",
         "cve_id":"CVE-2017-6965",
@@ -2026,7 +2026,7 @@
             "ASAN_OPTIONS=detect_leaks=0 make CFLAGS=\"-ldl -lutil -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-fsanitize=address -fsanitize=undefined -ldl -lutil -g\" LDFLAGS=\" -ldl -lutil -fsanitize=address -fsanitize=undefined\" -j10"
         ],
         "test_command":[
-            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../exploit"
+            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../VUL4C/exploit"
         ],
         "nvd_info":"dwarf2.c in the Binary File Descriptor (BFD) library (aka libbfd), as distributed in GNU Binutils 2.29, miscalculates DW_FORM_ref_addr die refs in the case of a relocatable object file, which allows remote attackers to cause a denial of service (find_abstract_instance_name invalid memory read, segmentation fault, and application crash).",
         "cve_id":"CVE-2017-15938",
@@ -2047,7 +2047,7 @@
             "ASAN_OPTIONS=detect_leaks=0 make CFLAGS=\"-ldl -lutil -fsanitize=address -g\" CXXFLAGS=\"-fsanitize=address -ldl -lutil -g\" LDFLAGS=\" -ldl -lutil -fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../exploit"
+            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../VUL4C/exploit"
         ],
         "nvd_info":"scan_unit_for_symbols in dwarf2.c in the Binary File Descriptor (BFD) library (aka libbfd), as distributed in GNU Binutils 2.29, allows remote attackers to cause a denial of service (NULL pointer dereference and application crash) via a crafted ELF file.",
         "cve_id":"CVE-2017-14940",
@@ -2068,7 +2068,7 @@
             "ASAN_OPTIONS=detect_leaks=0 make CFLAGS=\"-ldl -lutil -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-fsanitize=address -fsanitize=undefined -ldl -lutil -g\" LDFLAGS=\" -ldl -lutil -fsanitize=address -fsanitize=undefined\" -j10"
         ],
         "test_command":[
-            "./binutils/readelf -a ../exploit"
+            "./binutils/readelf -a ../VUL4C/exploit"
         ],
         "nvd_info":"GNU Binutils 2017-04-03 allows remote attackers to cause a denial of service (NULL pointer dereference and application crash), related to the process_mips_specific function in readelf.c, via a crafted ELF file that triggers a large memory-allocation attempt.",
         "cve_id":"CVE-2017-9040",
@@ -2089,7 +2089,7 @@
             "ASAN_OPTIONS=detect_leaks=0 make CFLAGS=\"-ldl -lutil -fsanitize=address -g\" CXXFLAGS=\"-fsanitize=address -ldl -lutil -g\" LDFLAGS=\" -ldl -lutil -fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../exploit"
+            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../VUL4C/exploit"
         ],
         "nvd_info":"find_abstract_instance_name in dwarf2.c in the Binary File Descriptor (BFD) library (aka libbfd), as distributed in GNU Binutils 2.29, allows remote attackers to cause a denial of service (infinite recursion and application crash) via a crafted ELF file.",
         "cve_id":"CVE-2017-15024",
@@ -2111,7 +2111,7 @@
             "cp binutils/objdump ../"
         ],
         "test_command":[
-            "./binutils/objdump -D ../exploit"
+            "./binutils/objdump -D ../VUL4C/exploit"
         ],
         "nvd_info":"The *_get_synthetic_symtab functions in the Binary File Descriptor (BFD) library (aka libbfd), as distributed in GNU Binutils 2.29, interpret a -1 value as a sorting count instead of an error flag, which allows remote attackers to cause a denial of service (integer overflow and application crash) or possibly have unspecified other impact via a crafted ELF file, related to elf32-i386.c and elf64-x86-64.c.",
         "cve_id":"CVE-2017-14745",
@@ -2132,7 +2132,7 @@
             "ASAN_OPTIONS=detect_leaks=0 make CFLAGS=\"-ldl -lutil -fsanitize=address -g\" CXXFLAGS=\"-fsanitize=address -ldl -lutil -g\" LDFLAGS=\" -ldl -lutil -fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../exploit"
+            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../VUL4C/exploit"
         ],
         "nvd_info":"dwarf2.c in the Binary File Descriptor (BFD) library (aka libbfd), as distributed in GNU Binutils 2.29, does not validate the DW_AT_name data type, which allows remote attackers to cause a denial of service (bfd_hash_hash NULL pointer dereference, or out-of-bounds access, and application crash) via a crafted ELF file, related to scan_unit_for_symbols and parse_comp_unit.",
         "cve_id":"CVE-2017-15022",
@@ -2153,7 +2153,7 @@
             "make CFLAGS=\"-ldl -lutil -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-fsanitize=address -fsanitize=undefined -ldl -lutil -g\" LDFLAGS=\" -ldl -lutil -fsanitize=address -fsanitize=undefined\" -j10"
         ],
         "test_command":[
-            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../exploit"
+            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../VUL4C/exploit"
         ],
         "nvd_info":"The *_get_synthetic_symtab functions in the Binary File Descriptor (BFD) library (aka libbfd), as distributed in GNU Binutils 2.29, do not ensure a unique PLT entry for a symbol, which allows remote attackers to cause a denial of service (heap-based buffer overflow and application crash) or possibly have unspecified other impact via a crafted ELF file, related to elf32-i386.c and elf64-x86-64.c.",
         "cve_id":"CVE-2017-14729",
@@ -2174,7 +2174,7 @@
             "ASAN_OPTIONS=detect_leaks=0 make CFLAGS=\"-ldl -lutil -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-fsanitize=address -fsanitize=undefined -ldl -lutil -g\" LDFLAGS=\" -ldl -lutil -fsanitize=address -fsanitize=undefined\" -j10"
         ],
         "test_command":[
-            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../exploit"
+            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../VUL4C/exploit"
         ],
         "nvd_info":"decode_line_info in dwarf2.c in the Binary File Descriptor (BFD) library (aka libbfd), as distributed in GNU Binutils 2.29, mishandles a length calculation, which allows remote attackers to cause a denial of service (heap-based buffer over-read and application crash) via a crafted ELF file, related to read_1_byte.",
         "cve_id":"CVE-2017-14939",
@@ -2195,7 +2195,7 @@
             "ASAN_OPTIONS=detect_leaks=0 make -j10"
         ],
         "test_command":[
-            "./binutils/readelf -w ../exploit"
+            "./binutils/readelf -w ../VUL4C/exploit"
         ],
         "nvd_info":"process_cu_tu_index in dwarf.c in GNU Binutils 2.30 allows remote attackers to cause a denial of service (heap-based buffer over-read and application crash) via a crafted binary file, as demonstrated by readelf.",
         "cve_id":"CVE-2018-10372",
@@ -2216,7 +2216,7 @@
             "ASAN_OPTIONS=detect_leaks=0 make CFLAGS=\"-ldl -lutil -fsanitize=signed-integer-overflow -g\" CXXFLAGS=\"-fsanitize=signed-integer-overflow -ldl -lutil -g\" LDFLAGS=\" -ldl -lutil -fsanitize=signed-integer-overflow\" -j10"
         ],
         "test_command":[
-            "./binutils/readelf -a ../exploit"
+            "./binutils/readelf -a ../VUL4C/exploit"
         ],
         "nvd_info":"readelf.c in GNU Binutils 2017-04-12 has a \"cannot be represented in type long\" issue, which might allow remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a crafted ELF file.",
         "cve_id":"CVE-2017-9042",
@@ -2238,7 +2238,7 @@
             "cp binutils/nm-new ../"
         ],
         "test_command":[
-            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../exploit"
+            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../VUL4C/exploit"
         ],
         "nvd_info":"decode_line_info in dwarf2.c in the Binary File Descriptor (BFD) library (aka libbfd), as distributed in GNU Binutils 2.29, allows remote attackers to cause a denial of service (divide-by-zero error and application crash) via a crafted ELF file.",
         "cve_id":"CVE-2017-15025",
@@ -2259,7 +2259,7 @@
             "ASAN_OPTIONS=detect_leaks=0 make CFLAGS=\"-ldl -lutil -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-fsanitize=address -fsanitize=undefined -ldl -lutil -g\" LDFLAGS=\" -ldl -lutil -fsanitize=address -fsanitize=undefined\" -j10"
         ],
         "test_command":[
-            "./binutils/readelf -a ../exploit"
+            "./binutils/readelf -a ../VUL4C/exploit"
         ],
         "nvd_info":"GNU Binutils 2.28 allows remote attackers to cause a denial of service (heap-based buffer over-read and application crash) via a crafted ELF file, related to the byte_get_little_endian function in elfcomm.c, the get_unwind_section_word function in readelf.c, and ARM unwind information that contains invalid word offsets.",
         "cve_id":"CVE-2017-9038",
@@ -2280,7 +2280,7 @@
             "ASAN_OPTIONS=detect_leaks=0 make CFLAGS=\"-ldl -lutil -fsanitize=address -g\" CXXFLAGS=\"-fsanitize=address -ldl -lutil -g\" LDFLAGS=\" -ldl -lutil -fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../exploit"
+            "./binutils/nm-new -A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D ../VUL4C/exploit"
         ],
         "nvd_info":"dwarf1.c in the Binary File Descriptor (BFD) library (aka libbfd), as distributed in GNU Binutils 2.29, mishandles pointers, which allows remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a crafted ELF file, related to parse_die and parse_line_table, as demonstrated by a parse_die heap-based buffer over-read.",
         "cve_id":"CVE-2017-15020",
@@ -2302,7 +2302,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./sfcommands/sfconvert ../exploit out.mp3 format aiff"
+            "./sfcommands/sfconvert ../VUL4C/exploit out.mp3 format aiff"
         ],
         "nvd_info":"Heap-based buffer overflow in the ulaw2linear_buf function in G711.cpp in Audio File Library (aka audiofile) 0.3.6, 0.3.5, 0.3.4, 0.3.3, 0.3.2, 0.3.1, 0.3.0, 0.2.7 allows remote attackers to cause a denial of service (crash) via a crafted file.",
         "cve_id":"CVE-2017-6834",
@@ -2324,7 +2324,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./sfcommands/sfconvert ../exploit out.mp3 format aiff"
+            "./sfcommands/sfconvert ../VUL4C/exploit out.mp3 format aiff"
         ],
         "nvd_info":"Integer overflow in sfcommands/sfconvert.c in Audio File Library (aka audiofile) 0.3.6 allows remote attackers to cause a denial of service (crash) via a crafted file.",
         "cve_id":"CVE-2017-6838",
@@ -2345,7 +2345,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./sfcommands/sfinfo ../exploit"
+            "./sfcommands/sfinfo ../VUL4C/exploit"
         ],
         "nvd_info":"Heap-based buffer overflow in the readValue function in FileHandle.cpp in audiofile (aka libaudiofile and Audio File Library) 0.3.6 allows remote attackers to have unspecified impact via a crafted WAV file.",
         "cve_id":"CVE-2017-6828",
@@ -2370,7 +2370,7 @@
             "clang -Wall -fsanitize=address -fno-omit-frame-pointer -g -fsanitize=address -o sfconver sfconvert.o printinfo.o  ../libaudiofile/.libs/libaudiofile.so -Wl,-rpath -Wl,$dir/libaudiofile/.libs"
         ],
         "test_command":[
-            "./sfcommands/sfconvert ../exploit out.mp3 format aiff"
+            "./sfcommands/sfconvert ../VUL4C/exploit out.mp3 format aiff"
         ],
         "nvd_info":"Heap-based buffer overflow in the Expand3To4Module::run function in libaudiofile/modules/SimpleModule.h in Audio File Library (aka audiofile) 0.3.6, 0.3.5, 0.3.4, 0.3.3, 0.3.2, 0.3.1, 0.3.0 allows remote attackers to cause a denial of service (crash) via a crafted file.",
         "cve_id":"CVE-2017-6836",
@@ -2392,7 +2392,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./sfcommands/sfconvert ../exploit out.mp3 format aiff"
+            "./sfcommands/sfconvert ../VUL4C/exploit out.mp3 format aiff"
         ],
         "nvd_info":"Heap-based buffer overflow in the decodeBlock in MSADPCM.cpp in Audio File Library (aka audiofile) 0.3.6, 0.3.5, 0.3.4, 0.3.3, 0.3.2, 0.3.1, 0.3.0, 0.2.7 allows remote attackers to cause a denial of service (crash) via a crafted file.",
         "cve_id":"CVE-2017-6832",
@@ -2414,7 +2414,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./sfcommands/sfconvert ../exploit out.mp3 format aiff"
+            "./sfcommands/sfconvert ../VUL4C/exploit out.mp3 format aiff"
         ],
         "nvd_info":"Heap-based buffer overflow in the alaw2linear_buf function in G711.cpp in Audio File Library (aka audiofile) 0.3.6 allows remote attackers to cause a denial of service (crash) via a crafted file.",
         "cve_id":"CVE-2017-6830",
@@ -2436,7 +2436,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./sfcommands/sfconvert ../exploit out.mp3 format aiff"
+            "./sfcommands/sfconvert ../VUL4C/exploit out.mp3 format aiff"
         ],
         "nvd_info":"Integer overflow in modules/MSADPCM.cpp in Audio File Library (aka audiofile) 0.3.6 allows remote attackers to cause a denial of service (crash) via a crafted file.",
         "cve_id":"CVE-2017-6839",
@@ -2458,7 +2458,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./sfcommands/sfconvert ../exploit out.mp3 format aiff"
+            "./sfcommands/sfconvert ../VUL4C/exploit out.mp3 format aiff"
         ],
         "nvd_info":"The reset1 function in libaudiofile/modules/BlockCodec.cpp in Audio File Library (aka audiofile) 0.3.6 allows remote attackers to cause a denial of service (divide-by-zero error and crash) via a crafted file.",
         "cve_id":"CVE-2017-6835",
@@ -2479,7 +2479,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./sfcommands/sfinfo ../exploit"
+            "./sfcommands/sfinfo ../VUL4C/exploit"
         ],
         "nvd_info":"Heap-based buffer overflow in the MSADPCM::initializeCoefficients function in MSADPCM.cpp in audiofile (aka libaudiofile and Audio File Library) 0.3.6 allows remote attackers to have unspecified impact via a crafted audio file.",
         "cve_id":"CVE-2017-6827",
@@ -2501,7 +2501,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./sfcommands/sfconvert ../exploit out.mp3 format aiff"
+            "./sfcommands/sfconvert ../VUL4C/exploit out.mp3 format aiff"
         ],
         "nvd_info":"Heap-based buffer overflow in the decodeBlockWAVE function in IMA.cpp in Audio File Library (aka audiofile) 0.3.6, 0.3.5, 0.3.4, 0.3.3, 0.3.2, 0.3.1, 0.3.0 and 0.2.7 allows remote attackers to cause a denial of service (crash) via a crafted file.",
         "cve_id":"CVE-2017-6831",
@@ -2523,7 +2523,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./sfcommands/sfconvert ../exploit out.mp3 format aiff"
+            "./sfcommands/sfconvert ../VUL4C/exploit out.mp3 format aiff"
         ],
         "nvd_info":"The decodeSample function in IMA.cpp in Audio File Library (aka audiofile) 0.3.6 allows remote attackers to cause a denial of service (crash) via a crafted file.",
         "cve_id":"CVE-2017-6829",
@@ -2545,7 +2545,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./sfcommands/sfconvert ../exploit out.mp3 format aiff"
+            "./sfcommands/sfconvert ../VUL4C/exploit out.mp3 format aiff"
         ],
         "nvd_info":"The runPull function in libaudiofile/modules/BlockCodec.cpp in Audio File Library (aka audiofile) 0.3.6 allows remote attackers to cause a denial of service (divide-by-zero error and crash) via a crafted file.",
         "cve_id":"CVE-2017-6833",
@@ -2567,7 +2567,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./programs/sndfile-convert ../exploit out.tmp"
+            "./programs/sndfile-convert ../VUL4C/exploit out.tmp"
         ],
         "nvd_info":"The i2les_array function in pcm.c in libsndfile 1.0.28 allows remote attackers to cause a denial of service (buffer over-read and application crash) via a crafted audio file.",
         "cve_id":"CVE-2017-8365",
@@ -2589,7 +2589,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./programs/sndfile-convert ../exploit out.wav"
+            "./programs/sndfile-convert ../VUL4C/exploit out.wav"
         ],
         "nvd_info":"The flac_buffer_copy function in flac.c in libsndfile 1.0.28 allows remote attackers to cause a denial of service (heap-based buffer over-read and application crash) via a crafted audio file.",
         "cve_id":"CVE-2017-8363",
@@ -2611,7 +2611,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./programs/sndfile-convert ../exploit out.wav"
+            "./programs/sndfile-convert ../VUL4C/exploit out.wav"
         ],
         "nvd_info":"The flac_buffer_copy function in flac.c in libsndfile 1.0.28 allows remote attackers to cause a denial of service (buffer overflow and application crash) or possibly have unspecified other impact via a crafted audio file.",
         "cve_id":"CVE-2017-8361",
@@ -2635,7 +2635,7 @@
             "cp ./djpeg ../"
         ],
         "test_command":[
-            "./djpeg -colors 256 -bmp ../exploit"
+            "./djpeg -colors 256 -bmp ../VUL4C/exploit"
         ],
         "nvd_info":"libjpeg-turbo 2.0.1 has a heap-based buffer over-read in the put_pixel_rows function in wrbmp.c, as demonstrated by djpeg.",
         "cve_id":"CVE-2018-19664",
@@ -2658,7 +2658,7 @@
             "cp ./djpeg ../"
         ],
         "test_command":[
-            "./djpeg ../exploit"
+            "./djpeg ../VUL4C/exploit"
         ],
         "nvd_info":"Heap-based buffer overflow in the get_sos function in jdmarker.c in libjpeg-turbo 1.2.0 allows remote attackers to cause a denial of service (application crash) and possibly execute arbitrary code via a large component count in the header of a JPEG image.",
         "cve_id":"CVE-2012-2806",
@@ -2681,7 +2681,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./cjpeg -outfile /tmp/null ../exploit"
+            "./cjpeg -outfile /tmp/null ../VUL4C/exploit"
         ],
         "nvd_info":"get_8bit_row in rdbmp.c in libjpeg-turbo through 1.5.90 and MozJPEG through 3.3.1 allows attackers to cause a denial of service (heap-based buffer over-read and application crash) via a crafted 8-bit BMP in which one or more of the color indices is out of range for the number of palette entries.",
         "cve_id":"CVE-2018-14498",
@@ -2704,7 +2704,7 @@
             "cp ./djpeg ../"
         ],
         "test_command":[
-            "./djpeg -crop 1x1+16+16 -onepass -dither ordered -dct float -colors 8 -targa -grayscale -outfile out.tmp ../exploit"
+            "./djpeg -crop 1x1+16+16 -onepass -dither ordered -dct float -colors 8 -targa -grayscale -outfile out.tmp ../VUL4C/exploit"
         ],
         "nvd_info":"libjpeg-turbo 1.5.2 has a NULL Pointer Dereference in jdpostct.c and jquant1.c via a crafted JPEG file.",
         "cve_id":"CVE-2017-15232",
@@ -2726,7 +2726,7 @@
             "make CFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./qpdf/build/qpdf ../exploit -"
+            "./qpdf/build/qpdf ../VUL4C/exploit -"
         ],
         "nvd_info":"libqpdf.a in QPDF 6.0.0 allows remote attackers to cause a denial of service (infinite recursion and stack consumption) via a crafted PDF document, related to releaseResolved functions, aka qpdf-infiniteloop1.",
         "cve_id":"CVE-2017-9208",
@@ -2748,7 +2748,7 @@
             "make CFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./qpdf/build/qpdf ../exploit -"
+            "./qpdf/build/qpdf ../VUL4C/exploit -"
         ],
         "nvd_info":"libqpdf.a in QPDF 6.0.0 allows remote attackers to cause a denial of service (infinite recursion and stack consumption) via a crafted PDF document, related to unparse functions, aka qpdf-infiniteloop3.",
         "cve_id":"CVE-2017-9210",
@@ -2770,7 +2770,7 @@
             "make CFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
-            "./qpdf/build/qpdf ../exploit -"
+            "./qpdf/build/qpdf ../VUL4C/exploit -"
         ],
         "nvd_info":"libqpdf.a in QPDF 6.0.0 allows remote attackers to cause a denial of service (infinite recursion and stack consumption) via a crafted PDF document, related to QPDFObjectHandle::parseInternal, aka qpdf-infiniteloop2.",
         "cve_id":"CVE-2017-9209",
@@ -2792,7 +2792,7 @@
             "make CFLAGS=\"-Wno-error -fsanitize=address -fsanitize=signed-integer-overflow -static -ggdb\" CXXFLAGS=\"-Wno-error -fsanitize=address -fsanitize=signed-integer-overflow -static -ggdb\" LDFLAGS=\"-Wno-error -fsanitize=address -fsanitize=signed-integer-overflow\" -j10"
         ],
         "test_command":[
-            "./bsdtar -tf ../exploit"
+            "./bsdtar -tf ../VUL4C/exploit"
         ],
         "nvd_info":"Integer overflow in the ISO parser in libarchive before 3.2.1 allows remote attackers to cause a denial of service (application crash) via a crafted ISO file.",
         "cve_id":"CVE-2016-5844",
@@ -2816,7 +2816,7 @@
             "make CFLAGS=\"-fsanitize=address -static -ggdb -Wno-error\" CXXFLAGS=\"-fsanitize=address -static -ggdb -Wno-error\" LDFLAGS=\"-fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./bsdtar -tf ../exploit"
+            "./bsdtar -tf ../VUL4C/exploit"
         ],
         "nvd_info":"The archive_read_format_cab_read_header function in archive_read_support_format_cab.c in libarchive 3.2.2 allows remote attackers to cause a denial of service (heap-based buffer over-read and application crash) via a crafted file.",
         "cve_id":"CVE-2016-10350",
@@ -2840,7 +2840,7 @@
             "make CFLAGS=\"-fsanitize=address -static -ggdb -Wno-error\" CXXFLAGS=\"-fsanitize=address -static -ggdb -Wno-error\" LDFLAGS=\"-fsanitize=address\" -j10"
         ],
         "test_command":[
-            "./bsdtar -tf ../exploit"
+            "./bsdtar -tf ../VUL4C/exploit"
         ],
         "nvd_info":"The archive_le32dec function in archive_endian.h in libarchive 3.2.2 allows remote attackers to cause a denial of service (heap-based buffer over-read and application crash) via a crafted file.",
         "cve_id":"CVE-2016-10349",
@@ -2864,7 +2864,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./bin/opj_compress -r 20,10,1 -jpip -EPH -SOP -cinema2K 24 -n 1 -i ../exploit -o null.j2k"
+            "./bin/opj_compress -r 20,10,1 -jpip -EPH -SOP -cinema2K 24 -n 1 -i ../VUL4C/exploit -o null.j2k"
         ],
         "nvd_info":"A heap-based buffer overflow was discovered in the opj_t2_encode_packet function in lib/openjp2/t2.c in OpenJPEG 2.2.0. The vulnerability causes an out-of-bounds write, which may lead to remote denial of service or possibly unspecified other impact.",
         "cve_id":"CVE-2017-14039",
@@ -2888,7 +2888,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./bin/opj_compress -n 1 -i ../exploit -o null.j2k"
+            "./bin/opj_compress -n 1 -i ../VUL4C/exploit -o null.j2k"
         ],
         "nvd_info":"A stack-based buffer overflow was discovered in the pgxtoimage function in bin/jp2/convert.c in OpenJPEG 2.2.0. The vulnerability causes an out-of-bounds write, which may lead to remote denial of service or possibly remote code execution.",
         "cve_id":"CVE-2017-14041",
@@ -2912,7 +2912,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./bin/opj_compress -n 1 -i ../exploit -o null.j2c"
+            "./bin/opj_compress -n 1 -i ../VUL4C/exploit -o null.j2c"
         ],
         "nvd_info":"An off-by-one error was discovered in opj_tcd_code_block_enc_allocate_data in lib/openjp2/tcd.c in OpenJPEG 2.2.0. The vulnerability causes an out-of-bounds write, which may lead to remote denial of service (heap-based buffer overflow affecting opj_mqc_flush in lib/openjp2/mqc.c and opj_t1_encode_cblk in lib/openjp2/t1.c) or possibly remote code execution.",
         "cve_id":"CVE-2017-14151",
@@ -2936,7 +2936,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./bin/opj_compress -n 1 -i ../exploit -o null.j2c"
+            "./bin/opj_compress -n 1 -i ../VUL4C/exploit -o null.j2c"
         ],
         "nvd_info":"The bmp_read_info_header function in bin/jp2/convertbmp.c in OpenJPEG 2.2.0 does not reject headers with a zero biBitCount, which allows remote attackers to cause a denial of service (memory allocation failure) in the opj_image_create function in lib/openjp2/image.c, related to the opj_aligned_alloc_n function in opj_malloc.c.",
         "cve_id":"CVE-2017-12982",
@@ -2960,7 +2960,7 @@
             "make -j10"
         ],
         "test_command":[
-            "./bin/opj_compress -i ../exploit -o null.j2k"
+            "./bin/opj_compress -i ../VUL4C/exploit -o null.j2k"
         ],
         "nvd_info":"convert.c in OpenJPEG before 2.1.2 allows remote attackers to cause a denial of service (NULL pointer dereference and application crash) via vectors involving the variable s.",
         "cve_id":"CVE-2016-7445",
@@ -2982,7 +2982,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\""
         ],
         "test_command":[
-            "./util/listswf ../exploit"
+            "./util/listswf ../VUL4C/exploit"
         ],
         "nvd_info":"The dumpBuffer function in read.c in the listswf tool in libming 0.4.7 allows remote attackers to cause a denial of service (NULL pointer dereference) via a crafted SWF file.",
         "cve_id":"CVE-2016-9828",
@@ -3005,7 +3005,7 @@
             "cp util/listmp3 ../"
         ],
         "test_command":[
-            "./util/listmp3 ../exploit"
+            "./util/listmp3 ../VUL4C/exploit"
         ],
         "nvd_info":"Buffer overflow in the printMP3Headers function in listmp3.c in Libming 0.4.7 allows remote attackers to cause a denial of service (out-of-bounds read) via a crafted mp3 file.",
         "cve_id":"CVE-2016-9264",
@@ -3027,7 +3027,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\""
         ],
         "test_command":[
-            "./util/swftophp ../exploit"
+            "./util/swftophp ../VUL4C/exploit"
         ],
         "nvd_info":"In libming 0.4.8, the decompileDELETE function of decompile.c has a use-after-free. Remote attackers could leverage this vulnerability to cause a denial of service via a crafted swf file.",
         "cve_id":"CVE-2018-8964",
@@ -3049,7 +3049,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\""
         ],
         "test_command":[
-            "./util/swftophp ../exploit"
+            "./util/swftophp ../VUL4C/exploit"
         ],
         "nvd_info":"In libming 0.4.8, there is a use-after-free in the decompileArithmeticOp function of decompile.c. Remote attackers could use this vulnerability to cause a denial-of-service via a crafted swf file.",
         "cve_id":"CVE-2018-8806",
@@ -3071,7 +3071,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\""
         ],
         "test_command":[
-            "./util/listswf ../exploit"
+            "./util/listswf ../VUL4C/exploit"
         ],
         "nvd_info":"Heap-based buffer overflow in the parseSWF_DEFINEFONT function in parser.c in the listswf tool in libming 0.4.7 allows remote attackers to have unspecified impact via a crafted SWF file.",
         "cve_id":"CVE-2016-9829",
@@ -3093,7 +3093,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\""
         ],
         "test_command":[
-            "./util/listmp3 ../exploit"
+            "./util/listmp3 ../VUL4C/exploit"
         ],
         "nvd_info":"The printMP3Headers function in listmp3.c in Libming 0.4.7 allows remote attackers to cause a denial of service (divide-by-zero error and application crash) via a crafted mp3 file.",
         "cve_id":"CVE-2016-9265",
@@ -3115,7 +3115,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\""
         ],
         "test_command":[
-            "./util/listswf ../exploit"
+            "./util/listswf ../VUL4C/exploit"
         ],
         "nvd_info":"Heap-based buffer overflow in the parseSWF_RGBA function in parser.c in the listswf tool in libming 0.4.7 allows remote attackers to have unspecified impact via a crafted SWF file.",
         "cve_id":"CVE-2016-9831",
@@ -3137,7 +3137,7 @@
             "make CFLAGS=\"-static -fsanitize=shift -g\" CXXFLAGS=\"-static -fsanitize=shift -g\" LDFLAGS=\"-fsanitize=shift\""
         ],
         "test_command":[
-            "./util/listmp3 ../exploit"
+            "./util/listmp3 ../VUL4C/exploit"
         ],
         "nvd_info":"listmp3.c in libming 0.4.7 allows remote attackers to unspecified impact via a crafted mp3 file, which triggers an invalid left shift.",
         "cve_id":"CVE-2016-9266",
@@ -3159,7 +3159,7 @@
             "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\""
         ],
         "test_command":[
-            "./util/listswf ../exploit"
+            "./util/listswf ../VUL4C/exploit"
         ],
         "nvd_info":"The _iprintf function in outputtxt.c in the listswf tool in libming 0.4.7 allows remote attackers to cause a denial of service (buffer over-read) via a crafted SWF file.",
         "cve_id":"CVE-2016-9827",
