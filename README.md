@@ -84,6 +84,7 @@ This repository is structured as follow:
             |----- README.txt 
             |----- exploit
             |----- setup.sh
+|----- Vul4C_Src: Source code for command line tool.
 |----- Framework
 |----- Results
     |----- Results.xlsx: All experimental results.
@@ -102,10 +103,13 @@ This repository is structured as follow:
 |----- train_valid_data
     |----- train.csv: Train data for learning-based tools.
     |----- valid.csv: Valid data for learning-based tools.
+|----- setup.py: setup script for command line tool.
 |----- README.md
 ```
 
 ## 4. Usage
+
+### 4.1 Manual
 
 Please ensure that you have properly installed docker and Docker SDK for Python before starting.
 
@@ -117,7 +121,31 @@ To use the Vul4C benchmark, you can follow these steps:
 
 2. Execute the exploit according to the commands in `README.txt` under the CVE directory. You need to replace `/path/to/compile/source` with the `source` path generated in step 1, and replace `$FILE` with the exploit path.  
 
-We will automate Vul4C's testing process in the future.
+### 4.2 Command Line Tool  
+We have built a command-line tool for Vul4c, and its usage is as follows:  
+
+1. First, you need to install the command-line tool by running `python3 setup.py install`. After installation, you can enter `vul4c` in the command line to check whether the installation was successful.  
+
+2. To checkout a vulnerability into the specified directory, use the command:  
+   `vul4c checkout -i <CVE ID> -d <checkout dir>`  
+
+3. To compile the checked out vulnerability, use the command:  
+   `vul4c compile -d <checkout dir>`  
+
+4. To exploit the checked out vulnerability, use the command:  
+   `vul4c reproduce -d <checkout dir>`  
+
+5. To apply a patch to the checked out vulnerability, use the command:  
+   `vul4c apply -d <checkout dir> -p <patch file>`  
+   Here, the patch file should conform to the standard diff format. We recommend using the following command to generate the patch file:  
+   `diff -u OLD.c NEW.c > patch.diff`  
+
+6. Other commands include:  
+```
+   vul4c info -i <CVE ID>            # Print information about a vulnerability  
+   vul4c status                      # List vul4c requirements and their availability  
+   vul4c test -d <checkout dir>      # Compile and exploit the checked out vulnerability
+```
 
 To reproduce the experiment, you can use the following command to startup on a selected repair tool and benchmark.
 
