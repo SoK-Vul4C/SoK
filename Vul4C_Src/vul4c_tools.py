@@ -1,3 +1,4 @@
+import cmd
 import csv
 import json
 import os
@@ -13,7 +14,7 @@ from loguru import logger
 import Vul4C_Src.utils as utils
 from Vul4C_Src.config import VUL4C_OUTPUT, LOG_TO_FILE, DATASET_PATH, VUL4C_PATH
 
-
+work_dir = ""
 class VulnerabilityNotFoundError(Exception):
     def __init__(self, message):
         super().__init__(message)
@@ -135,12 +136,13 @@ def checkout(vul_id: str, project_dir: str, force: bool = False) -> None:
     assert not os.path.exists(project_dir), f"Directory '{project_dir}' already exists!"
 
     commands = vul["get_command"]
+    global work_dir 
     work_dir = project_dir
     if not os.path.exists(work_dir):
         os.makedirs(work_dir, exist_ok=True)
     for cmd in commands:
-        if cmd.startswith("cd source"):
-            work_dir = os.path.join(work_dir, "source")
+        if cmd.startswith("cd"):
+            work_dir = os.path.join(work_dir, cmd.split(" ")[-1])
             continue
 
         result = subprocess.run(cmd, shell=True, cwd=work_dir)
@@ -176,7 +178,7 @@ def build(project_dir: str, suffix: str = None, clean: bool = False) -> None:
     log_path = os.path.join(project_dir, VUL4C_OUTPUT, utils.suffix_filename("compile.log", suffix))
     log_output = open(log_path, "w", encoding="utf-8") if LOG_TO_FILE else subprocess.DEVNULL
     # work_dir = os.path.join(project_dir, "source")
-    work_dir = project_dir
+    global work_dir
 
     logger.info("Compiling...")
     for cmd in compile_cmd:
@@ -277,8 +279,7 @@ def test(project_dir: str, suffix: str = None) -> dict:
 
     log_path = os.path.join(project_dir, VUL4C_OUTPUT, utils.suffix_filename("compile.log", suffix))
     log_output = open(log_path, "w", encoding="utf-8", errors="replace") if LOG_TO_FILE else subprocess.DEVNULL
-    work_dir = os.path.join(project_dir, "source")
-
+    global work_dir
     logger.info("Compiling...")
     for cmd in compile_cmd:
         subprocess.run(cmd,

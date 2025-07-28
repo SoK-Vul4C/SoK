@@ -1457,12 +1457,11 @@
         "get_command":[
             "hg clone http://hg.code.sf.net/p/graphicsmagick/code/ source",
             "cd source",
-            "hg revert -r db4eb7f97eeb --all",
-            "./configure --disable-shared",
-            "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
+            "hg revert -r db4eb7f97eeb --all"
         ],
         "compile_command":[
-
+            "./configure --disable-shared",
+            "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
             "./utilities/gm convert ../VUL4C/exploit null"
@@ -1499,12 +1498,11 @@
         "get_command":[
             "hg clone http://hg.code.sf.net/p/graphicsmagick/code/ source",
             "cd source",
-            "hg revert -r db4eb7f97eeb --all",
-            "./configure --disable-shared",
-            "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
+            "hg revert -r db4eb7f97eeb --all"
         ],
         "compile_command":[
-
+            "./configure --disable-shared",
+            "make CFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" CXXFLAGS=\"-static -fsanitize=address -fno-omit-frame-pointer -ggdb\" LDFLAGS=\"-fsanitize=address -fno-omit-frame-pointer\" -j10"
         ],
         "test_command":[
             "./utilities/gm identify ../VUL4C/exploit"
