@@ -320,7 +320,6 @@ def reproduce(project_dir: str, suffix: str = None) -> dict:
     log_path = os.path.join(project_dir, VUL4C_OUTPUT, utils.suffix_filename("testing.log", suffix))
     log_output = open(log_path, "w", encoding="utf-8", errors="replace") if LOG_TO_FILE else subprocess.DEVNULL
     work_dir = os.path.join(project_dir, "source")
-
     logger.info(f"Running tests...")
     for cmd in test_cmd:
         result = subprocess.run(cmd,
@@ -329,6 +328,8 @@ def reproduce(project_dir: str, suffix: str = None) -> dict:
                     stderr=subprocess.STDOUT,
                     cwd=work_dir,
                     universal_newlines=True,
+                    encoding="utf-8", 
+                    errors="replace"
                     )
         if LOG_TO_FILE:
             log_output.write(result.stdout)
