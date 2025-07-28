@@ -80,13 +80,11 @@ def check_status():
         logger.log("SUCCESS" if success else "ERROR", f"{message}: {'OK' if success else 'NOT FOUND'}")
 
     gcc_5 = check_compiler("gcc", "5")
-    gcc_7 = check_compiler("gcc", "7")
     clang_6 = check_compiler("clang", "6.0")
     clang_10 = check_compiler("clang", "10")
     clangpp_6 = check_compiler("clang++", "6.0")
     clangpp_10 = check_compiler("clang++", "10")
     log_result("GCC 5", gcc_5)
-    log_result("GCC 7", gcc_7)
     log_result("Clang 6.0", clang_6)
     log_result("Clang 10", clang_10)
     log_result("Clang++ 6.0", clangpp_6)
