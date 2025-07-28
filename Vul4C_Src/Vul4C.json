@@ -50,6 +50,7 @@
             "cd source"
         ],
         "compile_command":[
+            "./configure",
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
@@ -327,6 +328,7 @@
             "cd source"
         ],
         "compile_command":[
+            "./configure",
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
@@ -392,6 +394,7 @@
             "cd source"
         ],
         "compile_command":[
+            "./configure",
             "make CFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" CXXFLAGS=\"-static -fsanitize=address -fsanitize=undefined -g\" -j10"
         ],
         "test_command":[
@@ -833,12 +836,10 @@
         "get_command":[
             "git clone https://github.com/gdraheim/zziplib.git source",
             "cd source/",
-            "git checkout 3a4ffcd"
+            "git checkout 3a4ffcd",
+            "wget -P docs/ https://github.com/LuaDist/libzzip/raw/master/docs/zziplib-manpages.tar"
         ],
         "compile_command":[
-            "cd docs/",
-            "wget https://github.com/LuaDist/libzzip/raw/master/docs/zziplib-manpages.tar",
-            "cd ../",
             "./configure",
             "make CFLAGS=\"-static -fsanitize=address -g\" CXXFLAGS=\"-static -fsanitize=address -g\" -j10"
         ],
@@ -857,12 +858,10 @@
         "get_command":[
             "git clone https://github.com/gdraheim/zziplib.git source",
             "cd source/",
-            "git checkout 33d6e9c"
+            "git checkout 33d6e9c",
+            "wget -P docs/ https://github.com/LuaDist/libzzip/raw/master/docs/zziplib-manpages.tar"
         ],
         "compile_command":[
-            "cd docs/",
-            "wget https://github.com/LuaDist/libzzip/raw/master/docs/zziplib-manpages.tar",
-            "cd ../",
             "./configure",
             "make CFLAGS=\"-static -fsanitize=address -g\" CXXFLAGS=\"-static -fsanitize=address -g\" -j10"
         ],
@@ -881,12 +880,11 @@
         "get_command":[
             "git clone https://github.com/gdraheim/zziplib.git source",
             "cd source/",
-            "git checkout 3a4ffcd"
+            "git checkout 3a4ffcd",
+            "wget -P docs/ https://github.com/LuaDist/libzzip/raw/master/docs/zziplib-manpages.tar"
         ],
         "compile_command":[
-            "cd docs/",
-            "wget https://github.com/LuaDist/libzzip/raw/master/docs/zziplib-manpages.tar",
-            "cd ../",
+
             "./configure",
             "make CFLAGS=\"-static -fsanitize=address -g\" CXXFLAGS=\"-static -fsanitize=address -g\" -j10"
         ],
@@ -2362,7 +2360,6 @@
             "git checkout d19a5ac"
         ],
         "compile_command":[
-            "git checkout d19a5ac",
             "CC=clang-10 CXX=clang++-10 ./autogen.sh --disable-docs CFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" CXXFLAGS=\"-fsanitize=address -fno-omit-frame-pointer -g\" LDFLAGS=\"-fsanitize=address\"",
             "make -j10",
             "cd sfcommands",

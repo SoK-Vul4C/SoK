@@ -175,10 +175,14 @@ def build(project_dir: str, suffix: str = None, clean: bool = False) -> None:
 
     log_path = os.path.join(project_dir, VUL4C_OUTPUT, utils.suffix_filename("compile.log", suffix))
     log_output = open(log_path, "w", encoding="utf-8") if LOG_TO_FILE else subprocess.DEVNULL
-    work_dir = os.path.join(project_dir, "source")
+    # work_dir = os.path.join(project_dir, "source")
+    work_dir = project_dir
 
     logger.info("Compiling...")
     for cmd in compile_cmd:
+        if cmd.startswith("cd"):
+            work_dir = os.path.join(work_dir, cmd.split(" ")[-1])
+            continue
         subprocess.run(cmd,
                     shell=True,
                     stdout=log_output,
@@ -272,7 +276,7 @@ def test(project_dir: str, suffix: str = None) -> dict:
     logger.debug(compile_cmd)
 
     log_path = os.path.join(project_dir, VUL4C_OUTPUT, utils.suffix_filename("compile.log", suffix))
-    log_output = open(log_path, "w", encoding="utf-8") if LOG_TO_FILE else subprocess.DEVNULL
+    log_output = open(log_path, "w", encoding="utf-8", errors="replace") if LOG_TO_FILE else subprocess.DEVNULL
     work_dir = os.path.join(project_dir, "source")
 
     logger.info("Compiling...")
@@ -285,7 +289,7 @@ def test(project_dir: str, suffix: str = None) -> dict:
                     check=True)
     
     log_path = os.path.join(project_dir, VUL4C_OUTPUT, utils.suffix_filename("testing.log", suffix))
-    log_output = open(log_path, "w", encoding="utf-8") if LOG_TO_FILE else subprocess.DEVNULL
+    log_output = open(log_path, "w", encoding="utf-8", errors="replace") if LOG_TO_FILE else subprocess.DEVNULL
     work_dir = os.path.join(project_dir, "source")
 
     logger.info(f"Running tests...")
@@ -313,7 +317,7 @@ def reproduce(project_dir: str, suffix: str = None) -> dict:
     test_cmd = vul["test_command"]
     logger.debug(test_cmd)
     log_path = os.path.join(project_dir, VUL4C_OUTPUT, utils.suffix_filename("testing.log", suffix))
-    log_output = open(log_path, "w", encoding="utf-8") if LOG_TO_FILE else subprocess.DEVNULL
+    log_output = open(log_path, "w", encoding="utf-8", errors="replace") if LOG_TO_FILE else subprocess.DEVNULL
     work_dir = os.path.join(project_dir, "source")
 
     logger.info(f"Running tests...")
