@@ -122,23 +122,41 @@ To use the Vul4C benchmark, you can follow these steps:
 2. Execute the exploit according to the commands in `README.txt` under the CVE directory. You need to replace `/path/to/compile/source` with the `source` path generated in step 1, and replace `$FILE` with the exploit path.  
 
 ### 4.2 Command Line Tool  
-We have built a command-line tool for Vul4c, and its usage is as follows:  
+We have built a command-line tool for Vul4c.Take `CVE-2017-9038` as example, its usage is as follows:  
 
 1. First, you need to install the command-line tool by running `python3 setup.py install`. After installation, you can enter `vul4c` in the command line to check whether the installation was successful.  
 
 2. To checkout a vulnerability into the specified directory, use the command:  
-   `vul4c checkout -i <CVE ID> -d <checkout dir>`  
+   `vul4c checkout -i CVE-2017-9038 -d /root/test/CVE-2017-9038`  
 
 3. To compile the checked out vulnerability, use the command:  
-   `vul4c compile -d <checkout dir>`  
+   `vul4c compile -d /root/test/CVE-2017-9038`  
 
 4. To exploit the checked out vulnerability, use the command:  
-   `vul4c reproduce -d <checkout dir>`  
+   `vul4c reproduce -d /root/test/CVE-2017-9038`  
 
 5. To apply a patch to the checked out vulnerability, use the command:  
-   `vul4c apply -d <checkout dir> -p <patch file>`  
+   `vul4c apply -d /root/test/CVE-2017-9038 -p patch.diff`  
    Here, the patch file should conform to the standard diff format. We recommend using the following command to generate the patch file:  
    `diff -u OLD.c NEW.c > patch.diff`  
+   The format of the patch file is similar to the following:
+   ```diff
+    --- CVE-2017-9038_CWE-125_readelf.c_OLD.c       2025-06-06 16:26:00.000000000 +0000
+    +++ CVE-2017-9038_CWE-125_readelf.c_NEW.c       2025-06-06 16:26:00.000000000 +0000
+    @@ -7965,9 +7965,9 @@
+        return FALSE;
+    
+    /* If the offset is invalid then fail.  */
+    -  if (word_offset > (sec->sh_size - 4)
+    -      /* PR 18879 */
+    -      || (sec->sh_size < 5 && word_offset >= sec->sh_size)
+    +  if (/* PR 21343 *//* PR 18879 */
+    +      sec->sh_size < 4
+    +      || word_offset > (sec->sh_size - 4)
+        || ((bfd_signed_vma) word_offset) < 0)
+        return FALSE;
+ 
+   ```
 
 6. Other commands include:  
 ```
