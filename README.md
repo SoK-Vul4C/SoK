@@ -109,15 +109,19 @@ This repository is structured as follow:
 
 ## 4. Usage
 
+Since our benchmark consists of multiple projects, each with distinct compilation environment requirements, we highly recommend using our pre-configured Docker image: `vul4c/vul4c:2.0`.  
+
+To get started, clone the repository using:  
+```bash  
+git clone https://github.com/SoK-Vul4C/SoK.git  
+```  
+After that, you can proceed with one of the following two methods to set up and use the benchmark, depending on your preference.
+
 ### 4.1 Manual
 
-Please ensure that you have properly installed docker and Docker SDK for Python before starting.
+To use the Vul4C benchmark manually, you can follow these steps: 
 
-You can use our experimental docker images, such as `vul4c/vulnfix:1.0`.
-
-To use the Vul4C benchmark, you can follow these steps: 
-
-1. Run `bash setup.sh` in the CVE directory. This will generate the `source` directory and automatically compile the code.  
+1. Run `bash setup.sh` in the Vul4c-Benchmark/{project}/CVE directory. This will generate the `source` directory and automatically compile the code.  
 
 2. Execute the exploit according to the commands in `README.txt` under the CVE directory. You need to replace `/path/to/compile/source` with the `source` path generated in step 1, and replace `$FILE` with the exploit path.  
 
